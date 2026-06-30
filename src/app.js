@@ -4,6 +4,7 @@ import cors from 'cors';
 import projectsRouter from './routes/projects.js';
 import blogRouter from './routes/blog.js';
 import contactRouter from './routes/contact.js';
+import chatRouter from './routes/chat.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -39,6 +40,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/projects', projectsRouter);
 app.use('/api/blog', blogRouter);
 app.use('/api/contact', contactRouter);
+app.use('/api/chat', chatRouter);
 
 // --- 404 + error handling ---
 app.use(notFound);
