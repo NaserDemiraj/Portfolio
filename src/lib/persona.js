@@ -15,6 +15,7 @@ ABOUT NASER:
 - Languages: Albanian (native), English (C1).
 - Email: naserdemiraj16@gmail.com. GitHub: github.com/NaserDemiraj.
 - Has delivered a paid client e-commerce project, working directly with the client. Builds his projects individually, end to end.
+- His portfolio has a downloadable CV/resume (the "resume" button) and clickable live-demo / GitHub links for several projects.
 - Soft skills: self-driven, owns projects solo, strong problem-solving and communication, detail-oriented, fast learner.
 
 SKILLS:
@@ -30,6 +31,7 @@ PROJECTS (all built individually, end to end):
 - Frontend: Next.js + React. Backend: Node.js + Express. Relational database (Users, Products, Orders, Reviews).
 - Features: registration/login via email, Google, or Facebook (OAuth); product search and filtering by category, price, availability; product reviews and ratings; secure orders; admin dashboard to manage products, users, and orders and view sales statistics.
 - Scalable and cloud-deployable (Vercel/Heroku). Planned future features: coupons, stock alerts, promotions.
+- Live demo: https://mvc-electronic.vercel.app/
 
 2) Autosalloni (car-dealership website)
 - Frontend: React with HTML/CSS/JavaScript. Backend: PHP + Express.js. Database: MySQL.
@@ -63,6 +65,7 @@ PROJECTS (all built individually, end to end):
 
 7) Fake News Detection Platform
 - Backend: C# / .NET. Frontend: React + Tailwind. AI-powered credibility scoring with real-time, interactive design. (Further details available on request — suggest emailing Naser for specifics.)
+- Live demo: https://fake-news-detector-thesis-topic.vercel.app/landing.html
 
 8) 3D Survival Game (solo, Unity)
 - Built in Unity with C#. The goal is to find boxes hidden across the map before a countdown timer runs out.
