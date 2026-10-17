@@ -1165,6 +1165,19 @@ p {
   text-overflow: ellipsis;
 }
 
+.frame__view {
+  position: relative;
+}
+
+.frame__shot--hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition:
+    opacity 0.6s var(--ease-out),
+    filter 0.6s var(--ease-out);
+}
+
 .frame__shot {
   display: block;
   width: 100%;
@@ -1189,81 +1202,11 @@ p {
   .work__card:hover .frame__shot {
     filter: none;
   }
-}
-
-.frame__shot--scene {
-  position: relative;
-  display: grid;
-  place-items: center;
-  perspective: 700px;
-  overflow: hidden;
-  filter: none;
-  background: radial-gradient(70% 60% at 50% 40%, #12201a, #0b100d 70%);
-}
-
-/* Wireframe "scene" for projects without a screenshot. */
-
-.scene__floor {
-  position: absolute;
-  left: -20%;
-  right: -20%;
-  bottom: -30%;
-  height: 75%;
-  background-image:
-    linear-gradient(rgba(116, 224, 163, 0.18) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(116, 224, 163, 0.18) 1px, transparent 1px);
-  background-size: 40px 40px;
-  transform: rotateX(68deg);
-  transform-origin: top;
-  -webkit-mask-image: linear-gradient(transparent, #000 40%);
-  mask-image: linear-gradient(transparent, #000 40%);
-  animation: scene-floor 3.5s linear infinite;
-}
-
-.scene__cube {
-  position: relative;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 24px;
-  transform-style: preserve-3d;
-  animation: scene-cube 14s linear infinite;
-}
-
-.scene__cube span {
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid var(--accent);
-  background: rgba(116, 224, 163, 0.04);
-  box-shadow: 0 0 24px rgba(116, 224, 163, 0.15) inset;
-}
-
-.scene__cube span:nth-child(1) { transform: translateZ(36px); }
-.scene__cube span:nth-child(2) { transform: rotateY(180deg) translateZ(36px); }
-.scene__cube span:nth-child(3) { transform: rotateY(90deg) translateZ(36px); }
-.scene__cube span:nth-child(4) { transform: rotateY(-90deg) translateZ(36px); }
-.scene__cube span:nth-child(5) { transform: rotateX(90deg) translateZ(36px); }
-.scene__cube span:nth-child(6) { transform: rotateX(-90deg) translateZ(36px); }
-
-
-@keyframes scene-cube {
-  from { transform: rotateX(-22deg) rotateY(0deg); }
-  to { transform: rotateX(-22deg) rotateY(360deg); }
-}
-
-@keyframes scene-floor {
-  from { background-position: 0 0; }
-  to { background-position: 0 40px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scene__cube,
-  .scene__floor {
-    animation: none;
-  }
-  .scene__cube {
-    transform: rotateX(-22deg) rotateY(35deg);
+  .work__card:hover .frame__shot--hover {
+    opacity: 1;
   }
 }
+
 
 .more {
   margin-top: 64px;

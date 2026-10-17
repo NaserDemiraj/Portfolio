@@ -3,7 +3,7 @@ import { ProjectLinkButton } from '../components/ProjectLinkButton';
 import ScrollStack, { ScrollStackItem } from '../components/reactbits/ScrollStack/ScrollStack';
 import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 import { SectionHeader } from '../components/SectionHeader';
-import { featured, sideProjects, type FeaturedProject } from '../data/projects';
+import { featured, sideProjects, type FeaturedProject, type Shot } from '../data/projects';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { MOTION_OK } from '../motion/gsap';
 
@@ -13,8 +13,22 @@ const SPOTLIGHT_VARS = {
   '--spotlight-card-shadow': 'none',
 } as CSSProperties;
 
-function hostOf(project: FeaturedProject) {
-  return project.link ? new URL(project.link.href).host : `${project.stack.join(' · ')}`;
+function frameLabel(project: FeaturedProject) {
+  return project.frameLabel ?? (project.link ? new URL(project.link.href).host : project.stack.join(' · '));
+}
+
+function ShotImg({ shot, className }: { shot: Shot; className: string }) {
+  return (
+    <img
+      className={className}
+      src={shot.src}
+      alt={shot.alt}
+      loading="lazy"
+      width={shot.width}
+      height={shot.height}
+      style={shot.position ? { objectPosition: shot.position } : undefined}
+    />
+  );
 }
 
 // Screenshots sit inside a dark browser window on a soft glow, so bright sites don't
@@ -29,31 +43,12 @@ function ProjectMedia({ project }: { project: FeaturedProject }) {
             <span />
             <span />
           </span>
-          <span className="frame__url">{hostOf(project)}</span>
+          <span className="frame__url">{frameLabel(project)}</span>
         </div>
-        {project.image ? (
-          <img
-            className="frame__shot"
-            src={project.image.src}
-            alt={project.image.alt}
-            loading="lazy"
-            width={1600}
-            height={800}
-          />
-        ) : (
-          // No screenshot yet: an intentional "scene" instead of a grey box.
-          <div className="frame__shot frame__shot--scene" aria-hidden="true">
-            <div className="scene__floor" />
-            <div className="scene__cube">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-        )}
+        <div className="frame__view">
+          <ShotImg shot={project.image} className="frame__shot" />
+          {project.hoverImage && <ShotImg shot={project.hoverImage} className="frame__shot frame__shot--hover" />}
+        </div>
       </div>
     </div>
   );

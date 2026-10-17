@@ -1,5 +1,7 @@
 export type ProjectLink = { href: string; label: string; kind: 'demo' | 'code' };
 
+export type Shot = { src: string; alt: string; width: number; height: number; position?: string };
+
 export type FeaturedProject = {
   title: string;
   tag: string;
@@ -7,7 +9,11 @@ export type FeaturedProject = {
   highlights: string[];
   stack: string[];
   link?: ProjectLink;
-  image?: { src: string; alt: string };
+  /** Text in the browser frame's address bar; defaults to the link's host. */
+  frameLabel?: string;
+  image: Shot;
+  /** Optional second shot that fades in on hover. */
+  hoverImage?: Shot;
 };
 
 export type SideProject = {
@@ -30,7 +36,7 @@ export const featured: FeaturedProject[] = [
     ],
     stack: ['React', 'TypeScript', 'Node.js', 'Neon Postgres'],
     link: { href: 'https://mvc-electronic.vercel.app/', label: 'Live demo', kind: 'demo' },
-    image: { src: '/projects/eg-electronics.webp', alt: 'EG Electronics storefront home page' },
+    image: { src: '/projects/eg-electronics.webp', alt: 'EG Electronics storefront home page', width: 1600, height: 800 },
   },
   {
     title: 'Fake News Detection Platform',
@@ -48,7 +54,12 @@ export const featured: FeaturedProject[] = [
       label: 'Live demo',
       kind: 'demo',
     },
-    image: { src: '/projects/truthlens.webp', alt: 'TruthLens AI fake news detector landing page' },
+    image: {
+      src: '/projects/truthlens.webp',
+      alt: 'TruthLens AI fake news detector landing page',
+      width: 1600,
+      height: 800,
+    },
   },
   {
     title: '3D Survival Game',
@@ -60,6 +71,22 @@ export const featured: FeaturedProject[] = [
       'Time-based objectives that ramp up the pressure the longer you survive',
     ],
     stack: ['C#', 'Unity'],
+    link: { href: 'https://github.com/NaserDemiraj/3D-UnityGame', label: 'View code', kind: 'code' },
+    frameLabel: 'survival.exe — level 1',
+    image: {
+      src: '/projects/survival-village.webp',
+      alt: 'Third-person view from a rooftop over the island village, with the level, timer and item counter HUD',
+      width: 1152,
+      height: 740,
+      position: '50% 70%',
+    },
+    hoverImage: {
+      src: '/projects/survival-fort.webp',
+      alt: 'The player overlooking the river, the forest and a walled fort from a hilltop',
+      width: 1172,
+      height: 738,
+      position: '50% 70%',
+    },
   },
 ];
 
