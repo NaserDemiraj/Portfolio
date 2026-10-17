@@ -1,4 +1,5 @@
 import { useReveal } from './hooks/useReveal';
+import { SmoothScroll } from './motion/SmoothScroll';
 import { About } from './sections/About';
 import { Contact } from './sections/Contact';
 import { Education } from './sections/Education';
@@ -12,7 +13,7 @@ function Divider() {
   return <div className="container divider" aria-hidden="true" />;
 }
 
-export default function App() {
+function Page() {
   useReveal();
 
   return (
@@ -32,5 +33,13 @@ export default function App() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <SmoothScroll>
+      <Page />
+    </SmoothScroll>
   );
 }

@@ -82,7 +82,7 @@ export function ChatWindow() {
         </span>
       </div>
 
-      <div ref={logRef} className="chat__log" role="log" aria-live="polite">
+      <div ref={logRef} className="chat__log" role="log" aria-live="polite" data-lenis-prevent>
         {messages.map((m, i) => (
           <div key={i} className={`chat__row chat__row--${m.role}`}>
             <div className={`chat__bubble chat__bubble--${m.role}`}>{m.text}</div>
