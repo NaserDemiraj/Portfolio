@@ -10,7 +10,8 @@ function inline(text: string, keyBase: string): ReactNode[] {
   return text.split(INLINE).map((part, i) => {
     const key = `${keyBase}-${i}`;
     if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
-      return <strong key={key}>{part.slice(2, -2)}</strong>;
+      // Models often bold URLs (**https://…**); keep those clickable.
+      return <strong key={key}>{inline(part.slice(2, -2), key)}</strong>;
     }
     if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
       return <code key={key}>{part.slice(1, -1)}</code>;
