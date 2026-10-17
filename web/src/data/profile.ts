@@ -18,7 +18,7 @@ export const profile = {
   },
   stats: [
     { value: 9.9, decimals: 1, suffix: '', label: 'GPA / 10' },
-    { value: 7, decimals: 0, suffix: '+', label: 'shipped projects' },
+    { value: 10, decimals: 0, suffix: '+', label: 'projects built' },
     { value: 10, decimals: 0, suffix: '', label: 'languages' },
   ],
   education: {
