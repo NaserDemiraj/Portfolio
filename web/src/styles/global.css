@@ -697,6 +697,48 @@ p {
   border-radius: 13px 13px 13px 3px;
 }
 
+.chat__bubble--assistant {
+  white-space: normal;
+}
+
+.chat__bubble--assistant p,
+.chat__bubble--assistant ul,
+.chat__bubble--assistant ol {
+  margin: 0 0 8px;
+}
+
+.chat__bubble--assistant > :last-child {
+  margin-bottom: 0;
+}
+
+.chat__bubble--assistant ul,
+.chat__bubble--assistant ol {
+  padding-left: 18px;
+}
+
+.chat__bubble--assistant li + li {
+  margin-top: 3px;
+}
+
+.chat__bubble--assistant strong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+.chat__bubble--assistant code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(116, 224, 163, 0.08);
+}
+
+.chat__bubble--assistant a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+
 .chat__bubble--thinking {
   background: var(--surface-2);
   border: 1px solid #20302a;
