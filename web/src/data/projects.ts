@@ -4,6 +4,7 @@ export type FeaturedProject = {
   title: string;
   tag: string;
   summary: string;
+  highlights: string[];
   stack: string[];
   link?: ProjectLink;
   image?: { src: string; alt: string };
@@ -21,7 +22,12 @@ export const featured: FeaturedProject[] = [
     title: 'EG Electronics — E-Commerce Platform',
     tag: 'paid client project · 2025',
     summary:
-      'A production-ready full-stack store with product management, cart, authentication and order-processing workflows. Delivered directly for a paying client, optimized for desktop and mobile.',
+      'A production-ready full-stack store, delivered directly for a paying client.',
+    highlights: [
+      'Product management, cart, auth and order-processing workflows',
+      'Worked with the client directly on requirements and fixes',
+      'Responsive across desktop and mobile',
+    ],
     stack: ['React', 'TypeScript', 'Node.js', 'Neon Postgres'],
     link: { href: 'https://mvc-electronic.vercel.app/', label: 'Live demo', kind: 'demo' },
     image: { src: '/projects/eg-electronics.webp', alt: 'EG Electronics storefront home page' },
@@ -30,7 +36,12 @@ export const featured: FeaturedProject[] = [
     title: 'Fake News Detection Platform',
     tag: 'AI platform',
     summary:
-      'Full-stack platform with AI-powered credibility scoring and real-time interaction design — a .NET backend paired with a React + Tailwind frontend.',
+      'A full-stack platform that scores how credible a news article is.',
+    highlights: [
+      'AI-powered credibility scoring',
+      'C# / .NET backend with a React + Tailwind frontend',
+      'Real-time interaction design',
+    ],
     stack: ['C# / .NET', 'React', 'Tailwind', 'AI scoring'],
     link: {
       href: 'https://fake-news-detector-thesis-topic.vercel.app/landing.html',
@@ -43,7 +54,11 @@ export const featured: FeaturedProject[] = [
     title: '3D Survival Game',
     tag: 'game · unity',
     summary:
-      'A 3D survival game built in Unity with C# — custom game logic, UI and time-based objectives that ramp up the pressure the longer you survive.',
+      'A 3D survival game built in Unity with C#.',
+    highlights: [
+      'Custom game logic and UI',
+      'Time-based objectives that ramp up the pressure the longer you survive',
+    ],
     stack: ['C#', 'Unity'],
   },
 ];
