@@ -34,7 +34,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background: var(--bg);
 }
 
@@ -136,29 +135,6 @@ p {
   font-size: 40px;
   letter-spacing: -0.02em;
   color: var(--text-strong);
-}
-
-/* ---------- reveal ---------- */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition:
-    opacity 0.7s var(--ease-out),
-    transform 0.7s var(--ease-out);
-}
-
-.reveal.in {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
 
 /* ---------- buttons, pills, tags ---------- */
@@ -337,10 +313,26 @@ p {
   position: sticky;
   top: 0;
   z-index: 30;
+  transition: transform 0.45s var(--ease-out);
   background: rgba(10, 13, 12, 0.82);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
+}
+
+.nav--hidden {
+  transform: translateY(-100%);
+}
+
+.nav__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
 }
 
 .nav__inner {
@@ -377,7 +369,8 @@ p {
   transition: color 0.2s;
 }
 
-.nav__link:hover {
+.nav__link:hover,
+.nav__link--active {
   color: var(--accent);
 }
 
