@@ -13,27 +13,48 @@ const SPOTLIGHT_VARS = {
   '--spotlight-card-shadow': 'none',
 } as CSSProperties;
 
+function hostOf(project: FeaturedProject) {
+  return project.link ? new URL(project.link.href).host : `${project.stack.join(' · ')}`;
+}
+
+// Screenshots sit inside a dark browser window on a soft glow, so bright sites don't
+// fight the page. Slightly muted until the card is hovered.
 function ProjectMedia({ project }: { project: FeaturedProject }) {
-  if (!project.image) {
-    // No screenshot yet: an intentional "scene" instead of a grey box.
-    return (
-      <div className="work__media work__media--scene" aria-hidden="true">
-        <div className="scene__floor" />
-        <div className="scene__cube">
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="scene__label">{project.stack.join(' · ')}</div>
-      </div>
-    );
-  }
   return (
     <div className="work__media">
-      <img src={project.image.src} alt={project.image.alt} loading="lazy" width={1600} height={800} />
+      <div className="frame">
+        <div className="frame__bar" aria-hidden="true">
+          <span className="frame__dots">
+            <span />
+            <span />
+            <span />
+          </span>
+          <span className="frame__url">{hostOf(project)}</span>
+        </div>
+        {project.image ? (
+          <img
+            className="frame__shot"
+            src={project.image.src}
+            alt={project.image.alt}
+            loading="lazy"
+            width={1600}
+            height={800}
+          />
+        ) : (
+          // No screenshot yet: an intentional "scene" instead of a grey box.
+          <div className="frame__shot frame__shot--scene" aria-hidden="true">
+            <div className="scene__floor" />
+            <div className="scene__cube">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -51,6 +72,11 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
         <h3 className="work__title">{project.title}</h3>
         {project.link && <ProjectLinkButton link={project.link} />}
         <p className="work__summary">{project.summary}</p>
+        <ul className="work__highlights">
+          {project.highlights.map((h) => (
+            <li key={h}>{h}</li>
+          ))}
+        </ul>
         <ul className="tags">
           {project.stack.map((s) => (
             <li key={s} className="tag tag--accent">
@@ -84,12 +110,12 @@ export function Work() {
             useWindowScroll
             smoothScroll={false}
             stackPosition="14%"
-            itemDistance={120}
-            itemStackDistance={28}
+            itemDistance={70}
+            itemStackDistance={26}
             itemScale={0.04}
             baseScale={0.88}
             dimAmount={0.35}
-            holdDistance={120}
+            holdDistance={40}
           >
             {featured.map((p, i) => (
               <ScrollStackItem key={p.title} itemClassName="work__stack-item">
