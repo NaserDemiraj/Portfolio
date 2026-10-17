@@ -19,10 +19,15 @@ function inline(text: string, keyBase: string): ReactNode[] {
     const md = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
     const href = md ? md[2] : /^https?:\/\//.test(part) ? part.replace(/[.,;:]+$/, '') : null;
     if (href) {
+      // Sentence punctuation after a bare URL stays as text, outside the link.
+      const trail = md ? '' : part.slice(href.length);
       return (
-        <a key={key} href={href} target="_blank" rel="noopener noreferrer">
-          {md ? md[1] : href}
-        </a>
+        <span key={key}>
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {md ? md[1] : href}
+          </a>
+          {trail}
+        </span>
       );
     }
     return part;
