@@ -2,6 +2,7 @@ import { useRef, useState, type ReactNode } from 'react';
 import ClickSpark from '../components/reactbits/ClickSpark/ClickSpark';
 import Magnet from '../components/reactbits/Magnet/Magnet';
 import { GitHubIcon, LinkedInBadge, MailIcon, PhoneIcon } from '../components/Icons';
+import { SectionHeader } from '../components/SectionHeader';
 import { profile } from '../data/profile';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { gsap, MOTION_OK, SplitText, useGSAP } from '../motion/gsap';
@@ -62,7 +63,7 @@ export function Contact() {
     <section id="contact" ref={root} className="contact">
       <ClickSpark sparkColor="#06140d" sparkSize={12} sparkRadius={26} sparkCount={9} duration={480}>
         <div className="container contact__inner">
-          <div className="eyebrow eyebrow--dark">// 05 contact</div>
+          <SectionHeader index="05" label="contact" tone="ink" />
           <h2 className="contact__title">
             Let's build
             <br />

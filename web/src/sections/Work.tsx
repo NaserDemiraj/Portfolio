@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import { ProjectLinkButton } from '../components/ProjectLinkButton';
 import ScrollStack, { ScrollStackItem } from '../components/reactbits/ScrollStack/ScrollStack';
 import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
+import { SectionHeader } from '../components/SectionHeader';
 import { featured, sideProjects, type FeaturedProject } from '../data/projects';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { MOTION_OK } from '../motion/gsap';
@@ -70,10 +71,12 @@ export function Work() {
   return (
     <section id="work" className="section">
       <div className="container">
-        <div className="secrow secrow--title reveal">
-          <div className="eyebrow">// 03 work</div>
-          <h2 className="section-title">Selected work</h2>
-        </div>
+        <SectionHeader
+          index="03"
+          label="work"
+          title="Selected work"
+          aside="A paid client build, an AI credibility-scoring platform and a Unity game, plus the side projects behind them."
+        />
 
         {stacked ? (
           <ScrollStack
@@ -105,7 +108,7 @@ export function Work() {
         )}
 
         <div className="more reveal">
-          <div className="eyebrow eyebrow--muted">// more projects</div>
+          <div className="more__label">// more projects</div>
           <div className="more__grid">
             {sideProjects.map((p) => (
               <SpotlightCard

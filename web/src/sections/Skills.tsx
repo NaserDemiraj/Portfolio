@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { SectionHeader } from '../components/SectionHeader';
 import { skillGroups } from '../data/skills';
 import { gsap, MOTION_OK, useGSAP } from '../motion/gsap';
 
@@ -26,9 +27,13 @@ export function Skills() {
   return (
     <section id="skills" ref={root} className="section">
       <div className="container">
-        <div className="secrow">
-          <div className="eyebrow reveal">// 02 skills</div>
-          <div className="secrow__body skills">
+        <SectionHeader
+          index="02"
+          label="skills"
+          title="What I build with"
+          aside="Ten languages and the frameworks around them, across web, mobile, games and hardware."
+        />
+        <div className="skills">
             {skillGroups.map((g) => (
               <div key={g.title} className="skills__group">
                 <h3 className="skills__title">{g.title}</h3>
@@ -41,7 +46,6 @@ export function Skills() {
                 </ul>
               </div>
             ))}
-          </div>
         </div>
       </div>
     </section>
