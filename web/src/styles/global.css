@@ -852,27 +852,104 @@ p {
 
 /* ---------- skills ---------- */
 
-.skills {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 34px 40px;
-}
 
-.tag--hover {
-  transition: color 0.2s, border-color 0.2s;
-}
-
-.tag--hover:hover {
+/* MagicBento overrides: site type, mono labels. */
+.bento .magic-bento__label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
   color: var(--accent);
-  border-color: var(--line-hover);
 }
 
-.skills__title {
+.bento .magic-bento__icon {
+  color: var(--accent);
+}
+
+.bento .magic-bento__title {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 15px;
-  color: #e6ece9;
-  margin-bottom: 14px;
+  font-size: 19px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.bento .magic-bento__description {
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+/* Hero card: the stack as terminal output, typed in line by line. */
+.bt {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: #080c0a;
+  border: 1px solid var(--line-3);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: var(--text-2);
+}
+
+.bt__line {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: bt-in 0.5s var(--ease-out) both;
+}
+
+.bt__prefix {
+  flex: none;
+  width: 10px;
+  color: var(--text-5);
+}
+
+.bt__cmd {
+  color: var(--text-strong);
+}
+
+.bt__ok {
+  color: var(--accent);
+}
+
+@keyframes bt-in {
+  from { opacity: 0; transform: translateX(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bt__line { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .bt__line {
+    white-space: normal;
+  }
+  /* MagicBento's visual uses size containment (zero intrinsic height); on the
+     single-column layout cards must grow to fit their content instead. */
+  .bento .magic-bento__visual {
+    container-type: inline-size;
+    flex: none;
+  }
+}
+
+.bento-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bento-chips li {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-2);
+  border: 1px solid var(--line-3);
+  border-radius: 6px;
+  padding: 5px 10px;
+  background: rgba(10, 13, 12, 0.6);
 }
 
 /* ---------- work ---------- */
@@ -1382,9 +1459,6 @@ p {
   }
   .about__grid {
     grid-template-columns: 1fr;
-  }
-  .skills {
-    grid-template-columns: 1fr 1fr;
   }
   .work__card,
   .more__grid {
