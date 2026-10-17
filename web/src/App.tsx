@@ -1,3 +1,4 @@
+import { FilmGrain, VeilRegion } from './components/Ambient';
 import { useReveal } from './hooks/useReveal';
 import { SmoothScroll } from './motion/SmoothScroll';
 import { About } from './sections/About';
@@ -9,10 +10,6 @@ import { Nav } from './sections/Nav';
 import { Skills } from './sections/Skills';
 import { StackStrip } from './sections/StackStrip';
 import { Work } from './sections/Work';
-
-function Divider() {
-  return <div className="container divider" aria-hidden="true" />;
-}
 
 function Page() {
   useReveal();
@@ -26,16 +23,16 @@ function Page() {
       <main id="main">
         <Hero />
         <StackStrip />
-        <About />
-        <Divider />
-        <Skills />
-        <Divider />
+        <VeilRegion>
+          <About />
+          <Skills />
+        </VeilRegion>
         <Work />
-        <Divider />
         <Education />
         <Contact />
       </main>
       <Footer />
+      <FilmGrain />
     </>
   );
 }

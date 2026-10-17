@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import ScrollReveal from '../components/reactbits/ScrollReveal/ScrollReveal';
+import { SectionHeader } from '../components/SectionHeader';
 import { profile } from '../data/profile';
 import { gsap, MOTION_OK, useGSAP } from '../motion/gsap';
 
@@ -32,10 +33,9 @@ export function About() {
   return (
     <section id="about" ref={root} className="section about">
       <div className="container">
-        <div className="secrow">
-          <div className="eyebrow reveal">// 01 about</div>
-          <div className="secrow__body">
-            <ScrollReveal
+        <SectionHeader index="01" label="about" />
+        <div className="about__grid">
+          <ScrollReveal
               containerClassName="about__statement"
               textClassName="about__statement-text"
               baseOpacity={0.14}
@@ -47,9 +47,9 @@ export function About() {
               rotationEnd="bottom 55%"
             >
               {profile.about.lead}
-            </ScrollReveal>
-            <p className="about__body reveal">{profile.about.body}</p>
-            <div className="stats reveal">
+          </ScrollReveal>
+          <p className="about__body reveal">{profile.about.body}</p>
+          <div className="stats reveal">
               {profile.stats.map((s) => (
                 <div key={s.label} className="stats__item">
                   <div
@@ -64,7 +64,6 @@ export function About() {
                   <div className="stats__label">{s.label}</div>
                 </div>
               ))}
-            </div>
           </div>
         </div>
       </div>
