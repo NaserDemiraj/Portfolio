@@ -6,6 +6,8 @@ import type { ReactNode } from 'react';
 
 const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\(https?:\/\/[^\s)]+\)|https?:\/\/[^\s)]+)/g;
 
+const cleanUrl = (url: string) => url.replace(/[‐‑‒–]/g, '-').replace(/[  ]/g, '');
+
 function inline(text: string, keyBase: string): ReactNode[] {
   return text.split(INLINE).map((part, i) => {
     const key = `${keyBase}-${i}`;
@@ -17,10 +19,13 @@ function inline(text: string, keyBase: string): ReactNode[] {
       return <code key={key}>{part.slice(1, -1)}</code>;
     }
     const md = part.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
-    const href = md ? md[2] : /^https?:\/\//.test(part) ? part.replace(/[.,;:]+$/, '') : null;
-    if (href) {
+    const raw = md ? md[2] : /^https?:\/\//.test(part) ? part.replace(/[.,;:]+$/, '') : null;
+    // Some models (gpt-oss) write non-breaking hyphens (U+2011) inside URLs, which
+    // look right but produce dead links.
+    const href = raw ? cleanUrl(raw) : null;
+    if (raw && href) {
       // Sentence punctuation after a bare URL stays as text, outside the link.
-      const trail = md ? '' : part.slice(href.length);
+      const trail = md ? '' : part.slice(raw.length);
       return (
         <span key={key}>
           <a href={href} target="_blank" rel="noopener noreferrer">
