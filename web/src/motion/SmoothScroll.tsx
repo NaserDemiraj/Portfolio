@@ -23,6 +23,21 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     return () => gsap.ticker.remove(update);
   }, []);
 
+  // Lenis prevents the default anchor jump, which also skips the browser's focus move.
+  // Move focus to the target ourselves so keyboard and screen-reader users land there too.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const link = (e.target as Element | null)?.closest?.('a[href^="#"]');
+      const id = link?.getAttribute('href')?.slice(1);
+      const target = id ? document.getElementById(id) : null;
+      if (!target) return;
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
   return (
     <>
       <ReactLenis root ref={lenisRef} options={{ autoRaf: false, anchors: true }} />
