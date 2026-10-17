@@ -1045,21 +1045,32 @@ p {
 /* ---------- contact ---------- */
 
 .contact {
-  background: var(--accent);
+  position: relative;
+  background:
+    radial-gradient(60% 80% at 85% 10%, rgba(255, 255, 255, 0.28), transparent 60%),
+    linear-gradient(rgba(6, 20, 13, 0.07) 1px, transparent 1px) 0 0 / 100% 44px,
+    var(--accent);
   color: var(--accent-ink);
 }
 
 .contact__inner {
-  padding-block: clamp(56px, 6vw, 80px);
+  padding-block: clamp(72px, 9vw, 130px);
 }
 
 .contact__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 56px;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin-bottom: 14px;
+  font-size: clamp(48px, 9vw, 132px);
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  margin-bottom: 26px;
+}
+
+/* SplitText line masks clip at the line box; give descenders (g, j) room. */
+.hero__name > *,
+.contact__title > * {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
 }
 
 .contact__lead {
@@ -1072,13 +1083,73 @@ p {
 .contact__links {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 14px;
+}
+
+.contact__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-ink);
+  background: rgba(6, 20, 13, 0.08);
+  border: 1px solid rgba(6, 20, 13, 0.25);
+  border-radius: 7px;
+  padding: 8px 12px;
+  min-width: 84px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-btn:hover {
+  background: rgba(6, 20, 13, 0.16);
+}
+
+.contact :focus-visible {
+  outline-color: var(--accent-ink);
 }
 
 /* ---------- footer ---------- */
 
 .footer {
   border-top: 1px solid var(--line);
+}
+
+.footer__local {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__pulse { animation: none; }
+}
+
+.footer__top {
+  color: var(--text-4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__top:hover {
+  color: var(--accent);
 }
 
 .footer__inner {
@@ -1149,7 +1220,10 @@ p {
   .hero__actions {
     flex-direction: column;
   }
-  .contact__title {
-    font-size: 40px;
+  .hero__actions .btn {
+    display: flex;
+  }
+  .contact__email {
+    flex-wrap: wrap;
   }
 }
