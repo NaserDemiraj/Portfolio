@@ -7,6 +7,7 @@ import { Footer } from './sections/Footer';
 import { Hero } from './sections/Hero';
 import { Nav } from './sections/Nav';
 import { Skills } from './sections/Skills';
+import { StackStrip } from './sections/StackStrip';
 import { Work } from './sections/Work';
 
 function Divider() {
@@ -21,7 +22,7 @@ function Page() {
       <Nav />
       <main>
         <Hero />
-        <Divider />
+        <StackStrip />
         <About />
         <Divider />
         <Skills />
