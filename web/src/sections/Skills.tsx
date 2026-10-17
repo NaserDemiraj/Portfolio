@@ -22,7 +22,7 @@ function WebTerminal() {
     ['›', 'react · next.js · typescript · tailwind'],
     ['›', 'node.js · .net · php'],
     ['›', 'neon postgres · sql'],
-    ['✓', <span className="bt__ok">shipped: eg-electronics, truthlens, scheduler</span>],
+    ['✓', <span className="bt__ok">built: ai-receptionist, humanflow, eg-electronics</span>],
   ];
   return (
     <div className="bt">
@@ -62,7 +62,7 @@ const items: MagicBentoItem[] = [
     icon: icon(AiBrain01Icon),
     label: 'ai',
     title: 'AI integrations',
-    description: 'Gemini chatbot, credibility scoring, and the Groq assistant on this page.',
+    description: 'An AI receptionist SaaS, the HumanFlow writing platform, and the Groq assistant on this page.',
   },
   {
     id: 'games',
