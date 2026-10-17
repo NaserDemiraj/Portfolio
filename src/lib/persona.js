@@ -72,7 +72,7 @@ PROJECTS (all built individually, end to end):
 - Open world with a forest, a village, a river, and mountains, all driven by realistic physics (for example, the river water flows). Naser built the entire game himself.
 - GitHub: github.com/NaserDemiraj/3D-UnityGame.
 
-9) AI Receptionist (multi-tenant SaaS, 2026) — built for MAMAJ Furniture, its first client
+9) AI Receptionist (multi-tenant SaaS, 2026) — MAMAJ Furniture is its first client (separate from the MAMAJ website)
 - Gives small businesses a 24/7 AI employee on their website: answers customers, recommends products from a live catalog, captures leads, books appointments, answers policy questions from a knowledge base, follows up automatically, and hands off to a human agent when needed.
 - Detects the customer's language per message: English, Albanian, or German.
 - Each business also gets a generated public website with the assistant built in, plus an embeddable chat widget (one script tag).
@@ -93,6 +93,13 @@ PROJECTS (all built individually, end to end):
 - Finds duplicate contacts in Excel/CSV files that Excel misses (fuzzy name matching, same phone number, invalid emails) and merges them, entirely in the browser: files are never uploaded, enforced by a strict Content Security Policy.
 - Free edition on the website; a paid offline Pro edition with no row limit.
 - Live: https://naserdemiraj.github.io/contact-cleaner/
+
+13) MAMAJ furniture website (live client website, built together with a friend)
+- The website for MAMAJ, a workshop making handmade, made-to-order furniture ("Mobilie të punuara me dorë"). Albanian-language.
+- Collections browsable by room (living room, bedroom, kitchen, dining), newest designs, an about page and a contact page.
+- Stack: React + Vite with React Router. Deployed on Vercel.
+- Live: https://mobileria-mamaj.vercel.app/
+- This is a separate project from the AI Receptionist.
 
 12) Shopware 6 QA automation exercise
 - A manual test plan, a documented performance bug report, and automated Playwright + TypeScript tests: a stable add-to-cart check for CI and a full guest-checkout test against a deterministic local demo.

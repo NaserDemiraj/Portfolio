@@ -65,6 +65,24 @@ export const featured: FeaturedProject[] = [
     image: { src: '/projects/eg-electronics.webp', alt: 'EG Electronics storefront home page', width: 1600, height: 800 },
   },
   {
+    title: 'MAMAJ — Furniture Website',
+    tag: 'live client website · built with a friend',
+    summary: 'The website for MAMAJ, a workshop making handmade, made-to-order furniture, in Albanian.',
+    highlights: [
+      'Collections browsable by room: living room, bedroom, kitchen and dining',
+      'Newest designs, the workshop story and a contact page',
+      'Designed and built together with a friend; live on Vercel',
+    ],
+    stack: ['React', 'Vite', 'React Router', 'CSS'],
+    link: { href: 'https://mobileria-mamaj.vercel.app/', label: 'Live site', kind: 'demo' },
+    image: {
+      src: '/projects/mamaj-furniture.webp',
+      alt: 'MAMAJ furniture website hero: "Mjeshtëri në çdo detaj. Elegancë në çdo ambient." over a wooden interior',
+      width: 1600,
+      height: 800,
+    },
+  },
+  {
     title: 'HumanFlow — AI Writing Platform',
     tag: 'AI SaaS · 2026',
     summary: 'A full writing workspace: humanize, detect, check and rewrite text, with accounts, quotas and a public API.',
@@ -75,12 +93,13 @@ export const featured: FeaturedProject[] = [
     ],
     stack: ['Next.js 16', 'TypeScript', 'Prisma', 'Neon Postgres', 'Groq'],
     link: { href: 'https://github.com/NaserDemiraj/AiHumanizer', label: 'View code', kind: 'code' },
-    frameLabel: 'humanflow · editor',
-    flow: [
-      { title: 'import', chips: ['PDF', 'DOCX', 'images → OCR', 'Markdown'] },
-      { title: 'rewrite, streamed', chips: ['14 modes', 'chain ×6', 'diff · accept / reject'] },
-      { title: 'export & API', chips: ['PDF', 'DOCX', 'ZIP batch', 'POST /api/v1/humanize'] },
-    ],
+    frameLabel: 'humanflow · local build',
+    image: {
+      src: '/projects/humanflow.webp',
+      alt: 'HumanFlow landing page: "Write naturally. Publish confidently." beside an editor preview with human and AI scores',
+      width: 1600,
+      height: 800,
+    },
   },
   {
     title: 'Fake News Detection Platform',
