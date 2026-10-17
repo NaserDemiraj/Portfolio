@@ -7,7 +7,12 @@ import { SYSTEM_PROMPT } from '../lib/persona.js';
 const router = Router();
 
 const { GROQ_API_KEY } = process.env;
-const MODEL = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+// llama-3.3-70b-versatile was retired by Groq; requests to it fail, which took the
+// chat down. gpt-oss-120b is the strongest general chat model on the free tier.
+const MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
+// gpt-oss models reason before answering; keep that short so it neither eats the
+// max_tokens budget (empty replies) nor adds latency to short portfolio answers.
+const REASONING = MODEL.startsWith('openai/gpt-oss') ? { reasoning_effort: 'low' } : {};
 
 const groq = GROQ_API_KEY ? new Groq({ apiKey: GROQ_API_KEY }) : null;
 
@@ -56,6 +61,7 @@ router.post(
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...turns],
         temperature: 0.6,
         max_tokens: 512,
+        ...REASONING,
       });
       reply = completion.choices?.[0]?.message?.content?.trim() || '';
     } catch (err) {
