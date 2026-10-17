@@ -668,41 +668,88 @@ p {
   cursor: progress;
 }
 
+/* ---------- stack strip ---------- */
+
+.strip {
+  border-block: 1px solid var(--line);
+  padding-block: 22px;
+  background: linear-gradient(90deg, transparent, rgba(116, 224, 163, 0.03), transparent);
+}
+
+.strip__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--text-4);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.strip__item:hover {
+  color: var(--accent);
+}
+
+.strip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line-hover);
+}
+
 /* ---------- about ---------- */
 
-.about__lead {
-  font-size: 22px;
-  line-height: 1.6;
-  color: var(--text-soft);
-  margin-bottom: 22px;
-  max-width: 680px;
+.about__statement.scroll-reveal {
+  margin: 0 0 30px;
+  max-width: 900px;
+}
+
+.about__statement-text.scroll-reveal-text {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.3vw, 44px);
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--text-strong);
 }
 
 .about__body {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: 1.75;
   color: var(--text-3);
-  max-width: 680px;
+  max-width: 640px;
 }
 
 .stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 200px));
+  gap: 16px;
+  margin-top: 44px;
+}
+
+.stats__item {
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  padding: 20px 22px;
+  background: linear-gradient(180deg, var(--surface), transparent);
 }
 
 .stats__value {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 34px;
+  font-size: clamp(34px, 3.6vw, 48px);
+  line-height: 1;
   color: var(--accent);
+  font-variant-numeric: tabular-nums;
 }
 
 .stats__label {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--text-4);
-  margin-top: 4px;
+  margin-top: 10px;
 }
 
 /* ---------- skills ---------- */
@@ -711,6 +758,15 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 34px 48px;
+}
+
+.tag--hover {
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tag--hover:hover {
+  color: var(--accent);
+  border-color: var(--line-hover);
 }
 
 .skills__title {
@@ -1077,9 +1133,6 @@ p {
   .nav__links {
     display: none;
   }
-  .stats {
-    gap: 34px;
-  }
   .section-title {
     font-size: 32px;
   }
@@ -1087,8 +1140,11 @@ p {
 
 @media (max-width: 520px) {
   .stats {
-    flex-wrap: wrap;
-    gap: 24px 34px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .stats__item {
+    padding: 16px 14px;
   }
   .hero__actions {
     flex-direction: column;
