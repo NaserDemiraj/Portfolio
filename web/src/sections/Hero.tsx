@@ -1,7 +1,9 @@
 import { lazy, Suspense, useRef } from 'react';
 import { ChatWindow } from '../components/ChatWindow';
+import Magnet from '../components/reactbits/Magnet/Magnet';
 import { GitHubIcon } from '../components/Icons';
 import { profile } from '../data/profile';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { gsap, MOTION_OK, ScrollTrigger, SplitText, useGSAP } from '../motion/gsap';
 
 // WebGL shader background: loaded after first paint so it never blocks the headline.
@@ -9,6 +11,7 @@ const FaultyTerminal = lazy(() => import('../components/reactbits/FaultyTerminal
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const finePointer = useMediaQuery('(hover: hover) and (pointer: fine)');
 
   useGSAP(
     () => {
@@ -47,7 +50,7 @@ export function Hero() {
   );
 
   return (
-    <section id="top" ref={root} className="hero">
+    <section id="home" ref={root} className="hero">
       <div className="hero__bg" aria-hidden="true">
         <Suspense fallback={null}>
           <FaultyTerminal
@@ -88,9 +91,11 @@ export function Hero() {
           </h1>
           <p className="hero__intro">{profile.intro}</p>
           <div className="hero__actions">
-            <a href="#work" className="btn btn--primary">
-              view work →
-            </a>
+            <Magnet padding={60} magnetStrength={5} maxOffset={12} disabled={!finePointer}>
+              <a href="#work" className="btn btn--primary">
+                view work →
+              </a>
+            </Magnet>
             <a href={profile.github} target="_blank" rel="noopener" className="btn btn--ghost btn--glass">
               <GitHubIcon />
               {profile.githubLabel}
