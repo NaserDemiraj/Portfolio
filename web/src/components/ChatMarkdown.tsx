@@ -6,7 +6,8 @@ import type { ReactNode } from 'react';
 
 const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\(https?:\/\/[^\s)]+\)|https?:\/\/[^\s)]+)/g;
 
-const cleanUrl = (url: string) => url.replace(/[‐‑‒–]/g, '-').replace(/[  ]/g, '');
+// U+2010–U+2013 are hyphen/dash look-alikes; U+00A0 and U+202F are no-break spaces.
+const cleanUrl = (url: string) => url.replace(/[\u2010-\u2013]/g, '-').replace(/[\u00a0\u202f]/g, '');
 
 function inline(text: string, keyBase: string): ReactNode[] {
   return text.split(INLINE).map((part, i) => {
