@@ -10,7 +10,7 @@ const GREETING: Message = {
 };
 
 const SUGGESTIONS = [
-  { label: 'The EG Electronics build?', prompt: 'Tell me about the EG Electronics e-commerce project.' },
+  { label: 'The AI Receptionist?', prompt: 'Tell me about the AI Receptionist built for MAMAJ Furniture.' },
   { label: 'Coolest project?', prompt: 'Which project is the most impressive and why?' },
   { label: 'Your tech stack?', prompt: "What's your main tech stack?" },
 ];
