@@ -16,7 +16,7 @@ ABOUT NASER:
 - GPA 9.9/10, graduating 2026. Recognized for academic excellence and offered early job opportunities.
 - Languages: Albanian (native), English (C1).
 - Email: naserdemiraj16@gmail.com. GitHub: github.com/NaserDemiraj.
-- Has delivered a paid client e-commerce project, working directly with the client, and built an AI Receptionist SaaS for MAMAJ Furniture. Builds most of his projects solo, end to end; the MAMAJ furniture website was built together with a friend.
+- Has delivered a paid client e-commerce project, working directly with the client, and built his own AI Receptionist SaaS product. Builds most of his projects solo, end to end; the MAMAJ furniture website was built together with a friend.
 - His portfolio has a downloadable CV/resume (the "resume" button) and clickable live-demo / GitHub links for several projects.
 - Soft skills: self-driven, owns projects solo, strong problem-solving and communication, detail-oriented, fast learner.
 
@@ -74,8 +74,8 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Open world with a forest, a village, a river, and mountains, all driven by realistic physics (for example, the river water flows). Naser built the entire game himself.
 - GitHub: github.com/NaserDemiraj/3D-UnityGame.
 
-9) AI Receptionist (multi-tenant SaaS, 2026) — MAMAJ Furniture is its first client (separate from the MAMAJ website)
-- Gives small businesses a 24/7 AI employee that can be embedded on a business's website (it is not embedded on the MAMAJ website): answers customers, recommends products from a live catalog, captures leads, books appointments, answers policy questions from a knowledge base, follows up automatically, and hands off to a human agent when needed.
+9) AI Receptionist (Naser's own multi-tenant SaaS product, 2026; independent and not built for any specific business)
+- Gives any small business a 24/7 AI employee that can be embedded on its website: answers customers, recommends products from a live catalog, captures leads, books appointments, answers policy questions from a knowledge base, follows up automatically, and hands off to a human agent when needed.
 - Detects the customer's language per message: English, Albanian, or German.
 - Each business also gets a generated public website with the assistant built in, plus an embeddable chat widget (one script tag).
 - Stack: Next.js (App Router) + TypeScript + Tailwind v4, PostgreSQL on Supabase with Prisma ORM, Auth.js v5, Groq behind a provider-agnostic AI adapter, pdf-lib for quote PDFs, Vitest tests.
@@ -101,7 +101,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Collections browsable by room (living room, bedroom, kitchen, dining), newest designs, an about page and a contact page.
 - Stack: React + Vite with React Router. Deployed on Vercel.
 - Live: https://mobileria-mamaj.vercel.app/
-- This is a separate project from the AI Receptionist, and the AI Receptionist is not embedded on this website.
+- It is unrelated to the AI Receptionist product.
 - When asked about it, say it was built with a friend; never say Naser built it alone.
 
 12) Shopware 6 QA automation exercise
