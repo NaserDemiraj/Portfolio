@@ -1167,6 +1167,7 @@ p {
 
 .frame__view {
   position: relative;
+  overflow: hidden;
 }
 
 .frame__shot--hover {
