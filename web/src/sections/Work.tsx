@@ -1,11 +1,14 @@
-import type { CSSProperties } from 'react';
+import { useRef, type CSSProperties } from 'react';
 import { ProjectLinkButton } from '../components/ProjectLinkButton';
 import ScrollStack, { ScrollStackItem } from '../components/reactbits/ScrollStack/ScrollStack';
 import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 import { SectionHeader } from '../components/SectionHeader';
 import { featured, sideProjects, type FeaturedProject, type Shot } from '../data/projects';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import { MOTION_OK } from '../motion/gsap';
+import { gsap, MOTION_OK, ScrollTrigger, useGSAP } from '../motion/gsap';
+
+// Phones and tablets: no hover, so effects that desktop triggers on hover run on scroll instead.
+const TOUCH = '(hover: none)';
 
 const SPOTLIGHT_VARS = {
   '--spotlight-card-surface': 'var(--surface)',
@@ -86,11 +89,62 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
 }
 
 export function Work() {
+  const root = useRef<HTMLElement>(null);
   // Cards pin and stack on desktop; on small screens or with reduced motion they're a plain list.
   const stacked = useMediaQuery(`(min-width: 861px) and ${MOTION_OK}`);
+  const touch = useMediaQuery(TOUCH);
+
+  // Touch equivalent of the desktop deck + hover effects, scrubbed by scroll position:
+  // cards rise in, the browser frame straightens and sharpens toward the centre, the shot
+  // drifts inside its frame, and second shots crossfade in once a card passes the middle.
+  useGSAP(
+    () => {
+      gsap.matchMedia().add(`${TOUCH} and ${MOTION_OK}`, () => {
+        gsap.utils.toArray<HTMLElement>('.work__list .work__card').forEach((card) => {
+          const frame = card.querySelector('.frame');
+          const shot = card.querySelector('.frame__shot');
+          const second = card.querySelector('.frame__shot--hover');
+          const scrub = { trigger: card, scrub: 0.6 };
+
+          gsap.from(card, {
+            y: 60,
+            scale: 0.94,
+            autoAlpha: 0.35,
+            ease: 'none',
+            scrollTrigger: { ...scrub, start: 'top bottom', end: 'top 60%' },
+          });
+          gsap.fromTo(
+            frame,
+            { rotate: -2.5, y: 24, filter: 'saturate(0.55) brightness(0.8)' },
+            {
+              rotate: 0,
+              y: 0,
+              filter: 'saturate(1) brightness(1)',
+              ease: 'none',
+              scrollTrigger: { ...scrub, trigger: frame, start: 'top bottom', end: 'center 55%' },
+            },
+          );
+          gsap.fromTo(
+            shot,
+            { yPercent: -4, scale: 1.1 },
+            { yPercent: 4, scale: 1.1, ease: 'none', scrollTrigger: { ...scrub, trigger: frame, start: 'top bottom', end: 'bottom top' } },
+          );
+          if (second) {
+            ScrollTrigger.create({
+              trigger: frame,
+              start: 'center 50%',
+              end: 'bottom top',
+              onToggle: (self) => gsap.to(second, { opacity: self.isActive ? 1 : 0, duration: 0.7, overwrite: true }),
+            });
+          }
+        });
+      });
+    },
+    { scope: root, dependencies: [stacked] },
+  );
 
   return (
-    <section id="work" className="section">
+    <section id="work" ref={root} className="section">
       <div className="container">
         <SectionHeader
           index="03"
@@ -121,7 +175,7 @@ export function Work() {
         ) : (
           <div className="work__list">
             {featured.map((p, i) => (
-              <div key={p.title} className="reveal">
+              <div key={p.title} className={touch ? undefined : 'reveal'}>
                 <ProjectCard project={p} index={i} />
               </div>
             ))}
@@ -141,6 +195,7 @@ export function Work() {
                 spotlightSize={280}
                 borderGlow={0.8}
                 proximity={120}
+                ambient={touch}
               >
                 <h3 className="more__title">{p.title}</h3>
                 {p.link && <ProjectLinkButton link={p.link} />}
