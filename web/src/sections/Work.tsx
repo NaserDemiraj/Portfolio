@@ -3,7 +3,7 @@ import { ProjectLinkButton } from '../components/ProjectLinkButton';
 import ScrollStack, { ScrollStackItem } from '../components/reactbits/ScrollStack/ScrollStack';
 import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 import { SectionHeader } from '../components/SectionHeader';
-import { featured, sideProjects, type FeaturedProject, type FlowStep, type Shot } from '../data/projects';
+import { featured, sideProjects, type FeaturedProject, type Shot } from '../data/projects';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { MOTION_OK } from '../motion/gsap';
 
@@ -15,28 +15,6 @@ const SPOTLIGHT_VARS = {
 
 function frameLabel(project: FeaturedProject) {
   return project.frameLabel ?? (project.link ? new URL(project.link.href).host : project.stack.join(' · '));
-}
-
-// Architecture at a glance for projects without a public deployment to screenshot.
-// Steps light up in sequence, like a request moving through the system.
-function FlowDiagram({ steps }: { steps: FlowStep[] }) {
-  return (
-    <ol className="flow" aria-label="How it works">
-      {steps.map((step, i) => (
-        <li key={step.title} className="flow__step" style={{ '--i': i, '--n': steps.length } as CSSProperties}>
-          <span className="flow__index">{String(i + 1).padStart(2, '0')}</span>
-          <div className="flow__body">
-            <div className="flow__title">{step.title}</div>
-            <ul className="flow__chips">
-              {step.chips.map((chip) => (
-                <li key={chip}>{chip}</li>
-              ))}
-            </ul>
-          </div>
-        </li>
-      ))}
-    </ol>
-  );
 }
 
 function ShotImg({ shot, className }: { shot: Shot; className: string }) {
@@ -68,14 +46,8 @@ function ProjectMedia({ project }: { project: FeaturedProject }) {
           <span className="frame__url">{frameLabel(project)}</span>
         </div>
         <div className="frame__view">
-          {project.image ? (
-            <>
-              <ShotImg shot={project.image} className="frame__shot" />
-              {project.hoverImage && <ShotImg shot={project.hoverImage} className="frame__shot frame__shot--hover" />}
-            </>
-          ) : (
-            project.flow && <FlowDiagram steps={project.flow} />
-          )}
+          <ShotImg shot={project.image} className="frame__shot" />
+          {project.hoverImage && <ShotImg shot={project.hoverImage} className="frame__shot frame__shot--hover" />}
         </div>
       </div>
     </div>
