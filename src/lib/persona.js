@@ -74,7 +74,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Open world with a forest, a village, a river, and mountains, all driven by realistic physics (for example, the river water flows). Naser built the entire game himself.
 - GitHub: github.com/NaserDemiraj/3D-UnityGame.
 
-9) AI Receptionist (Naser's own multi-tenant SaaS product, 2026; independent and not built for any specific business)
+9) AI Receptionist (Naser's own independent multi-tenant SaaS product, 2026; he tested it with MAMAJ Furniture as the demo business)
 - Gives any small business a 24/7 AI employee that can be embedded on its website: answers customers, recommends products from a live catalog, captures leads, books appointments, answers policy questions from a knowledge base, follows up automatically, and hands off to a human agent when needed.
 - Detects the customer's language per message: English, Albanian, or German.
 - Each business also gets a generated public website with the assistant built in, plus an embeddable chat widget (one script tag).
