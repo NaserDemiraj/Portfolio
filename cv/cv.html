@@ -269,6 +269,46 @@
 
     <div class="proj">
       <div class="proj-head">
+        <span class="t">IoT Drone Control <span style="font-weight: 400">· balancing quadcopter</span></span>
+        <span class="m">github.com/NaserDemiraj/Drone</span>
+      </div>
+      <ul>
+        <li>
+          Built a remote-controlled drone around an ESP32, an MPU6050 accelerometer/gyroscope (I2C), a
+          TB6612FNG motor driver and four DC motors, with the frame and battery.
+        </li>
+        <li>
+          A PID controller keeps it balanced on pitch, roll and yaw through PWM motor control; it returns to a stable
+          hover automatically after inactivity.
+        </li>
+        <li>
+          FastAPI backend exposing a REST API and a web interface that sends movement commands (up, down, forward,
+          backward, left, right, rotate); mock pin, PWM and sensor classes let the logic be tested without the hardware.
+        </li>
+      </ul>
+      <div class="stack">Python, MicroPython, ESP32, FastAPI</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="t">3D Survival Game <span style="font-weight: 400">· solo, Unity</span></span>
+        <span class="m">github.com/NaserDemiraj/3D-UnityGame</span>
+      </div>
+      <ul>
+        <li>
+          Built the whole game myself: an open world with a forest, a village, a river and mountains, where the goal is
+          to find the items hidden across the map before a countdown timer runs out.
+        </li>
+        <li>
+          Wrote the game logic in C# (levels, item collection, time-based objectives that raise the pressure) and the
+          on-screen UI showing level, time left and items found; realistic physics, including flowing river water.
+        </li>
+      </ul>
+      <div class="stack">Unity, C#</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
         <span class="t">MAMAJ Furniture website <span style="font-weight: 400">· live client website, built with a friend</span></span>
         <span class="m">mobileria-mamaj.vercel.app</span>
       </div>
@@ -281,20 +321,6 @@
       <div class="stack">React, Vite, React Router, CSS</div>
     </div>
 
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">Contact Cleaner <span style="font-weight: 400">· private in-browser duplicate-contact tool</span></span>
-        <span class="m">naserdemiraj.github.io/contact-cleaner</span>
-      </div>
-      <ul>
-        <li>
-          Finds duplicate contacts that Excel misses (fuzzy names, shared phone numbers, invalid emails) entirely in the
-          browser. Files are never uploaded, which a strict Content Security Policy enforces. Free edition plus a paid Pro
-          edition.
-        </li>
-      </ul>
-      <div class="stack">JavaScript, SheetJS</div>
-    </div>
 
     <div class="proj">
       <div class="proj-head">
@@ -307,28 +333,19 @@
       <div class="stack">C# / .NET, React, Tailwind</div>
     </div>
 
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">Psychologist Scheduler <span style="font-weight: 400">· bachelor thesis</span></span>
-      </div>
-      <ul>
-        <li>
-          Online booking for mental-health sessions with patient, psychologist and admin dashboards, double-booking
-          prevention, PDF / Excel session reports, and Zoom and Google Calendar integrations.
-        </li>
-      </ul>
-      <div class="stack">React, Node.js, Express, Prisma, Neon PostgreSQL, JWT</div>
-    </div>
 
     <div class="proj">
       <div class="proj-head">
         <span class="t">Other projects</span>
       </div>
       <ul class="other">
-        <li><b>3D Survival Game</b> (Unity, C#): game logic, UI and time-based objectives.</li>
         <li>
-          <b>IoT Drone Control</b> (Python, MicroPython, ESP32): PID balancing controller and a web interface driving
-          the flight logic.
+          <b>Contact Cleaner</b> (JavaScript): finds duplicate contacts Excel misses, entirely in the browser with no
+          uploads; free edition plus a paid Pro. <span style="color:#444">naserdemiraj.github.io/contact-cleaner</span>
+        </li>
+        <li>
+          <b>Psychologist Scheduler</b> (React, Node.js, Prisma; bachelor thesis): online session booking with patient,
+          psychologist and admin dashboards.
         </li>
         <li><b>AI Chatbot</b> (Python, Gemini API): real-time chatbot with a web frontend.</li>
         <li><b>Online Voting System</b> (PHP, MySQL): sessions, user validation and OTP login.</li>
