@@ -29,7 +29,7 @@ function ShotImg({ shot, className }: { shot: Shot; className: string }) {
       loading="lazy"
       width={shot.width}
       height={shot.height}
-      style={shot.position ? { objectPosition: shot.position } : undefined}
+      style={{ ...(shot.position ? { objectPosition: shot.position } : {}), ...(shot.aspect ? { aspectRatio: shot.aspect } : {}) }}
     />
   );
 }

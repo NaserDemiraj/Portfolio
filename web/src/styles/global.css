@@ -1192,8 +1192,10 @@ p {
 
 /* Muted + tilted at rest, sharpened on hover; touch screens just show the shot. */
 @media (hover: hover) {
+  /* Lift only: a fractional-degree rotation makes the browser resample (blur) the
+     whole screenshot while it sits at rest. */
   .frame {
-    transform: translateY(6px) rotate(-0.6deg);
+    transform: translateY(6px);
   }
   .work__card:hover .frame {
     transform: none;
