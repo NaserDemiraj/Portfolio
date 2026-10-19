@@ -1,6 +1,6 @@
 export type ProjectLink = { href: string; label: string; kind: 'demo' | 'code' };
 
-export type Shot = { src: string; alt: string; width: number; height: number; position?: string };
+export type Shot = { src: string; alt: string; width: number; height: number; position?: string; aspect?: string };
 
 export type FeaturedProject = {
   title: string;
@@ -39,14 +39,16 @@ export const featured: FeaturedProject[] = [
     image: {
       src: '/projects/ai-receptionist-widget.webp',
       alt: 'The chat widget on the MAMAJ Furniture demo store: asked for a grey corner sofa under €900, Sara recommends the Oslo Corner Sofa with product cards',
-      width: 1400,
-      height: 700,
+      width: 1520,
+      height: 1400,
+      aspect: '76 / 70',
     },
     hoverImage: {
       src: '/projects/ai-receptionist-inbox.webp',
       alt: 'The business dashboard inbox showing the same conversation, handled by the AI with a searchProducts tool call',
-      width: 1400,
-      height: 700,
+      width: 1520,
+      height: 1400,
+      aspect: '76 / 70',
     },
   },
   {
