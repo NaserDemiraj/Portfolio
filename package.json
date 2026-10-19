@@ -10,7 +10,8 @@
     "start": "node src/server.js",
     "build": "vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:cv": "node scripts/build-cv.mjs"
   },
   "engines": {
     "node": ">=18"

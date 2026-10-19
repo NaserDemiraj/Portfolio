@@ -32,6 +32,12 @@ web/
 
 **Motion:** Lenis smooth scroll runs on GSAP's ticker and feeds `ScrollTrigger.update`, so scroll and every tween share one frame loop. Each animation is registered inside `gsap.matchMedia('(prefers-reduced-motion: no-preference)')`, so reduced-motion users get the static page.
 
+### Resume
+
+The PDF behind the "resume" button is generated, not hand-made. Edit `cv/cv.html`, then run
+`npm run build:cv` to rewrite `web/public/Naser_Demiraj_CV.pdf` (uses your installed Chrome or Edge;
+set `CHROME_PATH` if it isn't found). Keep it in step with `web/src/data/`.
+
 ### Credits
 
 | Component | Used for | Source |
