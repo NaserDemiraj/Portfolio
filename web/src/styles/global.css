@@ -1519,6 +1519,10 @@ p {
   .footer__top {
     padding-block: 14px;
   }
+  /* The nav is 75px tall on touch (44px logo + padding), so anchors need more clearance. */
+  .section {
+    scroll-margin-top: 80px;
+  }
 }
 
 /* Very narrow screens (Galaxy Fold folded is 280px, iPhone SE 1st gen 320px). */
