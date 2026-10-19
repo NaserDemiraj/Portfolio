@@ -1,5 +1,6 @@
-import { lazy, Suspense, useRef } from 'react';
+import { lazy, useRef } from 'react';
 import { ChatWindow } from '../components/ChatWindow';
+import { Decor } from '../components/Decor';
 import Magnet from '../components/reactbits/Magnet/Magnet';
 import { GitHubIcon } from '../components/Icons';
 import { profile } from '../data/profile';
@@ -52,7 +53,7 @@ export function Hero() {
   return (
     <section id="home" ref={root} className="hero">
       <div className="hero__bg" aria-hidden="true">
-        <Suspense fallback={null}>
+        <Decor>
           <FaultyTerminal
             tint="#74e0a3"
             glyphs="characters"
@@ -70,7 +71,7 @@ export function Hero() {
             clickEffect="glitch"
             dpr={Math.min(window.devicePixelRatio || 1, 1.5)}
           />
-        </Suspense>
+        </Decor>
       </div>
 
       <div className="container hero__grid">

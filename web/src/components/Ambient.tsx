@@ -1,4 +1,5 @@
-import { lazy, Suspense, type ReactNode } from 'react';
+import { lazy, type ReactNode } from 'react';
+import { Decor } from './Decor';
 
 const DarkVeil = lazy(() => import('./reactbits/DarkVeil/DarkVeil'));
 const Noise = lazy(() => import('./reactbits/Noise/Noise'));
@@ -8,7 +9,7 @@ export function VeilRegion({ children }: { children: ReactNode }) {
   return (
     <div className="veil-region">
       <div className="veil-region__bg" aria-hidden="true">
-        <Suspense fallback={null}>
+        <Decor>
           <DarkVeil
             color="#2f8f64"
             speed={0.25}
@@ -22,7 +23,7 @@ export function VeilRegion({ children }: { children: ReactNode }) {
             mouseStrength={0.4}
             dpr={1}
           />
-        </Suspense>
+        </Decor>
       </div>
       {children}
     </div>
@@ -32,8 +33,8 @@ export function VeilRegion({ children }: { children: ReactNode }) {
 /** Fixed, barely-there film grain over the whole page so flat darks get texture. */
 export function FilmGrain() {
   return (
-    <Suspense fallback={null}>
+    <Decor>
       <Noise fixed opacity={0.04} fps={18} contrast={0.5} zIndex={60} />
-    </Suspense>
+    </Decor>
   );
 }
