@@ -6,6 +6,7 @@ import { GitHubIcon } from '../components/Icons';
 import { profile } from '../data/profile';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { gsap, MOTION_OK, ScrollTrigger, SplitText, useGSAP } from '../motion/gsap';
+import { webglEffectsAllowed } from '../motion/webgl';
 
 // WebGL shader background: loaded after first paint so it never blocks the headline.
 const FaultyTerminal = lazy(() => import('../components/reactbits/FaultyTerminal/FaultyTerminal'));
@@ -53,7 +54,7 @@ export function Hero() {
   return (
     <section id="home" ref={root} className="hero">
       <div className="hero__bg" aria-hidden="true">
-        <Decor>
+        <Decor enabled={webglEffectsAllowed()}>
           <FaultyTerminal
             tint="#74e0a3"
             glyphs="characters"

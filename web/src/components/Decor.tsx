@@ -24,7 +24,8 @@ class DecorBoundary extends Component<{ children: ReactNode }, State> {
  * If the chunk fails to download (offline, flaky network, blocked by an extension) or
  * the effect throws (no WebGL), the page renders normally without it instead of crashing.
  */
-export function Decor({ children }: { children: ReactNode }) {
+export function Decor({ children, enabled = true }: { children: ReactNode; enabled?: boolean }) {
+  if (!enabled) return null;
   return (
     <DecorBoundary>
       <Suspense fallback={null}>{children}</Suspense>

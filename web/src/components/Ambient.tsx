@@ -1,4 +1,5 @@
 import { lazy, type ReactNode } from 'react';
+import { webglEffectsAllowed } from '../motion/webgl';
 import { Decor } from './Decor';
 
 const DarkVeil = lazy(() => import('./reactbits/DarkVeil/DarkVeil'));
@@ -9,7 +10,7 @@ export function VeilRegion({ children }: { children: ReactNode }) {
   return (
     <div className="veil-region">
       <div className="veil-region__bg" aria-hidden="true">
-        <Decor>
+        <Decor enabled={webglEffectsAllowed()}>
           <DarkVeil
             color="#2f8f64"
             speed={0.25}
