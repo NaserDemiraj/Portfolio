@@ -25,9 +25,9 @@ export type SideProject = {
 
 export const featured: FeaturedProject[] = [
   {
-    title: 'AI Receptionist — built for MAMAJ Furniture',
+    title: 'AI Receptionist — AI Employee SaaS',
     tag: 'multi-tenant SaaS · 2026',
-    summary: 'A 24/7 AI employee for small businesses, running on their website, with MAMAJ Furniture as the first client.',
+    summary: 'My own multi-tenant SaaS that gives any small business a 24/7 AI employee on its website. Tested with MAMAJ Furniture as the demo business.',
     highlights: [
       'Recommends products from a live catalog, captures leads and books appointments',
       'Answers in English, Albanian or German, detected per message, and hands off to a human agent',
@@ -35,10 +35,10 @@ export const featured: FeaturedProject[] = [
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase Postgres', 'Prisma', 'Groq tool use'],
     link: { href: 'https://github.com/NaserDemiraj/AiReceptionist', label: 'View code', kind: 'code' },
-    frameLabel: 'ai-receptionist · local demo',
+    frameLabel: 'ai-receptionist · mamaj demo',
     image: {
       src: '/projects/ai-receptionist-widget.webp',
-      alt: 'The chat widget on the MAMAJ demo store: asked for a grey corner sofa under €900, Sara recommends the Oslo Corner Sofa with product cards',
+      alt: 'The chat widget on the MAMAJ Furniture demo store: asked for a grey corner sofa under €900, Sara recommends the Oslo Corner Sofa with product cards',
       width: 1400,
       height: 700,
     },
