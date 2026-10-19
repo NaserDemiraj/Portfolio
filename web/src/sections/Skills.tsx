@@ -8,6 +8,7 @@ import {
   GameController01Icon,
   SmartPhone01Icon,
 } from '@hugeicons/core-free-icons';
+import { LazyMount } from '../components/LazyMount';
 import MagicBento, { type MagicBentoItem } from '../components/reactbits/MagicBento/MagicBento';
 import { SectionHeader } from '../components/SectionHeader';
 import { skillGroups } from '../data/skills';
@@ -130,24 +131,26 @@ export function Skills() {
           aside="Ten languages and the frameworks around them, across web, mobile, games and hardware."
         />
         <div className="reveal">
-          <MagicBento
-            className="bento"
-            items={items}
-            columns={4}
-            rowHeight={compact ? 140 : 210}
-            gap={14}
-            radius={16}
-            glowColor="#74e0a3"
-            textAutoHide={false}
-            enableBorderGlow
-            enableSpotlight
-            spotlightRadius={320}
-            enableStars={!reduce}
-            particleCount={14}
-            enableTilt={false}
-            clickEffect
-            style={BENTO_THEME}
-          />
+          <LazyMount minHeight={compact ? 1360 : 660}>
+            <MagicBento
+              className="bento"
+              items={items}
+              columns={4}
+              rowHeight={compact ? 140 : 210}
+              gap={14}
+              radius={16}
+              glowColor="#74e0a3"
+              textAutoHide={false}
+              enableBorderGlow
+              enableSpotlight
+              spotlightRadius={320}
+              enableStars={!reduce}
+              particleCount={14}
+              enableTilt={false}
+              clickEffect
+              style={BENTO_THEME}
+            />
+          </LazyMount>
         </div>
       </div>
     </section>
