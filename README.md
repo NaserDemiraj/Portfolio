@@ -1,6 +1,6 @@
 # Naser Demiraj — Portfolio
 
-Personal site and API for [naserdemiraj.vercel.app](https://naserdemiraj.vercel.app).
+Personal site and API for [naserdemiraj.is-a.dev](https://naserdemiraj.is-a.dev).
 
 - **Site** (`web/`): React 19 + TypeScript + Vite, with motion by [GSAP](https://gsap.com) and [Lenis](https://github.com/darkroomengineering/lenis), plus components from [React Bits](https://reactbits.dev)
 - **API** (`api/`, `src/`): Node.js + Express on Vercel serverless, Supabase (PostgreSQL), and a Groq-powered chat assistant

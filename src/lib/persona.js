@@ -65,9 +65,13 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Database tables: admin, voters, candidates, positions, votes. Each voter casts one secure vote per position; admins manage candidates/positions and see results in real time.
 - Security: hashed passwords, SQL-injection protection, OTP login. Responsive design; tested for functionality, security, load, and usability.
 
-7) Fake News Detection Platform
-- Backend: C# / .NET. Frontend: React + Tailwind. AI-powered credibility scoring with real-time, interactive design. (Further details available on request — suggest emailing Naser for specifics.)
-- Live demo: https://fake-news-detector-thesis-topic.vercel.app/landing.html
+7) VerifyNews — AI fact-checker (2026, with a full evaluation study)
+- Scores how credible a news article is: paste text or a link, or use the Manifest V3 browser extension to analyse the current page or selected text. Returns a score, a verdict and the red flags behind it.
+- An LLM grounded in live web search (Tavily) and fact-check sources, with provider fallback (Groq, Gemini, Cerebras, xAI, local Ollama). Accounts with email verification, analysis history, batch analysis and shareable results.
+- Prompt-injection defense: the article is fenced as untrusted data and injected instructions are treated as a red flag. In its evaluation, no attack changed a verdict on the production 70B model (0 of 10 trials); on a small 8B model the defense cut attack success by about a third.
+- Evaluation study (C# runner + Python analyses): a TF-IDF baseline reaches 98.7% F1 on the ISOT dataset but collapses to about 49% on LIAR, while the LLM transfers across datasets; a small multilingual test across 8 languages, including Albanian, detected every language and verdict correctly (n=18, a capability demo rather than a precise estimate).
+- Stack: C# / .NET 8 backend with tests and CI, Next.js frontend, Neon Postgres, Docker (backend hosted on a Hugging Face Space).
+- Live demo: https://fake-news-detector-thesis-topic.vercel.app/landing.html. GitHub: github.com/NaserDemiraj/Fake-News-Detector-Thesis-Topic-.
 
 8) 3D Survival Game (solo, Unity)
 - Built in Unity with C#. The goal is to find boxes hidden across the map before a countdown timer runs out.

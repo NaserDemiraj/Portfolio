@@ -110,7 +110,7 @@ export function Websites() {
           scrollTrigger: {
             trigger: pin.current,
             start: 'top top',
-            end: () => `+=${distance()}`,
+            end: () => `+=${distance() * 0.55}`,
             pin: true,
             scrub: 0.7,
             invalidateOnRefresh: true,

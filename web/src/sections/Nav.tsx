@@ -41,7 +41,7 @@ export function Nav() {
       <div className="container nav__inner">
         <a href="#top" className="nav__brand" aria-label="Back to top">
           <span className="logo-mark">ND</span>
-          <span className="nav__domain">naser.dev</span>
+          <span className="nav__domain">naserdemiraj.is-a.dev</span>
         </a>
         <div className="nav__links">
           {LINKS.map((l) => (
