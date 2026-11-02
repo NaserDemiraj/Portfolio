@@ -23,7 +23,7 @@ export function Sideways({ count, children }: { count: number; children: ReactNo
           trigger: pin.current,
           start: 'top top',
           // the row moves faster than the page, so the pinned stretch stays short
-          end: () => `+=${distance() * 0.55}`,
+          end: () => `+=${distance() * 0.4}`,
           pin: true,
           scrub: 0.7,
           invalidateOnRefresh: true,

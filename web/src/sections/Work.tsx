@@ -1,4 +1,4 @@
-import { useRef, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { ProjectLinkButton } from '../components/ProjectLinkButton';
 import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 import { SectionHeader } from '../components/SectionHeader';
@@ -9,6 +9,10 @@ import { gsap, MOTION_OK, ScrollTrigger, SIDEWAYS, useGSAP } from '../motion/gsa
 
 // Phones and tablets: no hover, so effects that desktop triggers on hover run on scroll instead.
 const TOUCH = '(hover: none)';
+// Narrow screens fold each card's highlights behind a Details toggle.
+const NARROW = '(max-width: 860px)';
+// How many side projects show before 'Show all'.
+const MORE_SHOWN = 4;
 
 const SPOTLIGHT_VARS = {
   '--spotlight-card-surface': 'var(--surface)',
@@ -57,6 +61,24 @@ function ProjectMedia({ project }: { project: FeaturedProject }) {
   );
 }
 
+function Highlights({ items }: { items: string[] }) {
+  const narrow = useMediaQuery(NARROW);
+  const list = (
+    <ul className="work__highlights">
+      {items.map((h) => (
+        <li key={h}>{h}</li>
+      ))}
+    </ul>
+  );
+  if (!narrow) return list;
+  return (
+    <details className="work__details">
+      <summary>details</summary>
+      {list}
+    </details>
+  );
+}
+
 function ProjectCard({ project, index }: { project: FeaturedProject; index: number }) {
   return (
     <article className="work__card">
@@ -70,11 +92,7 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
         <h3 className="work__title">{project.title}</h3>
         {project.link && <ProjectLinkButton link={project.link} />}
         <p className="work__summary">{project.summary}</p>
-        <ul className="work__highlights">
-          {project.highlights.map((h) => (
-            <li key={h}>{h}</li>
-          ))}
-        </ul>
+        <Highlights items={project.highlights} />
         <ul className="tags">
           {project.stack.map((s) => (
             <li key={s} className="tag tag--accent">
@@ -93,6 +111,13 @@ export function Work() {
   // Cards slide sideways on wide screens; on smaller screens or with reduced motion they're a plain list.
   const sideways = useMediaQuery(SIDEWAYS);
   const touch = useMediaQuery(TOUCH);
+  const [allMore, setAllMore] = useState(false);
+  const more = allMore ? sideProjects : sideProjects.slice(0, MORE_SHOWN);
+
+  // The page grows when the rest of the side projects open; re-measure the scroll scenes below.
+  useEffect(() => {
+    if (allMore) ScrollTrigger.refresh();
+  }, [allMore]);
 
   // Touch equivalent of the desktop deck + hover effects, scrubbed by scroll position:
   // cards rise in, the browser frame straightens and sharpens toward the centre, the shot
@@ -175,7 +200,7 @@ export function Work() {
         <div className="more reveal">
           <div className="more__label">// more projects</div>
           <div className="more__grid">
-            {sideProjects.map((p) => (
+            {more.map((p) => (
               <SpotlightCard
                 key={p.title}
                 className="more__card"
@@ -194,6 +219,11 @@ export function Work() {
               </SpotlightCard>
             ))}
           </div>
+          {sideProjects.length > MORE_SHOWN && (
+            <button type="button" className="btn btn--ghost btn--sm more__toggle" onClick={() => setAllMore((v) => !v)} aria-expanded={allMore}>
+              {allMore ? 'show fewer' : `show all ${sideProjects.length}`}
+            </button>
+          )}
         </div>
       </div>
     </section>
