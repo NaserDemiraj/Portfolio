@@ -1842,6 +1842,8 @@ p {
   .steps__list {
     grid-template-columns: 1fr;
   }
+}
+
 /* "live demo" badge in a site's browser bar */
 .frame__live {
   display: inline-flex;
