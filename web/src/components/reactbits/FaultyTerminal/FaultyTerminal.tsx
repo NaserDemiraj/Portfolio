@@ -38,6 +38,8 @@ export interface FaultyTerminalProps extends Omit<HTMLAttributes<HTMLDivElement>
   variation?: number;
   lightMode?: boolean;
   dpr?: number;
+  /** Called once the shaders have compiled and the first frame is drawn. */
+  onReady?: () => void;
   className?: string;
   style?: CSSProperties;
 }
@@ -520,26 +522,27 @@ void main() {
 
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
-const compile = (gl: WebGL2RenderingContext, type: number, source: string) => {
-  const shader = gl.createShader(type);
-  if (!shader) return null;
-  gl.shaderSource(shader, source);
-  gl.compileShader(shader);
-  if (gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return shader;
-  gl.deleteShader(shader);
-  return null;
-};
-
-const link = (gl: WebGL2RenderingContext, fragmentSource: string): Program | null => {
-  const vertex = compile(gl, gl.VERTEX_SHADER, VERTEX);
-  const fragment = compile(gl, gl.FRAGMENT_SHADER, fragmentSource);
+// Compiling is split in two so the page never waits for the GPU: start every program
+// first (no status queries, which would block until compiling finishes), then finish
+// them once the driver reports they are ready (see KHR_parallel_shader_compile below).
+const startLink = (gl: WebGL2RenderingContext, fragmentSource: string): WebGLProgram | null => {
+  const vertex = gl.createShader(gl.VERTEX_SHADER);
+  const fragment = gl.createShader(gl.FRAGMENT_SHADER);
   const program = gl.createProgram();
   if (!vertex || !fragment || !program) return null;
+  gl.shaderSource(vertex, VERTEX);
+  gl.shaderSource(fragment, fragmentSource);
+  gl.compileShader(vertex);
+  gl.compileShader(fragment);
   gl.attachShader(program, vertex);
   gl.attachShader(program, fragment);
   gl.linkProgram(program);
   gl.deleteShader(vertex);
   gl.deleteShader(fragment);
+  return program;
+};
+
+const finishLink = (gl: WebGL2RenderingContext, program: WebGLProgram): Program | null => {
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
     gl.deleteProgram(program);
     return null;
@@ -598,6 +601,7 @@ export default function FaultyTerminal({
   variation,
   lightMode = false,
   dpr,
+  onReady,
   className = '',
   style,
   ...rest
@@ -637,6 +641,8 @@ export default function FaultyTerminal({
     dpr
   };
   const settingsRef = useRef(settings);
+  const onReadyRef = useRef(onReady);
+  onReadyRef.current = onReady;
   settingsRef.current = settings;
 
   useEffect(() => {
@@ -650,9 +656,12 @@ export default function FaultyTerminal({
       stencil: false
     });
     if (!container || !canvas || !gl) return undefined;
-    const cellShader = link(gl, CELL_FRAGMENT);
-    const mainShader = link(gl, MAIN_FRAGMENT);
-    if (!cellShader || !mainShader) return undefined;
+    const cellProgram = startLink(gl, CELL_FRAGMENT);
+    const mainProgram = startLink(gl, MAIN_FRAGMENT);
+    if (!cellProgram || !mainProgram) return undefined;
+
+    // Everything from here on runs once both programs are ready.
+    const run = (cellShader: Program, mainShader: Program) => {
     const cu = cellShader.uniforms;
     const mu = mainShader.uniforms;
     const vao = gl.createVertexArray();
@@ -920,8 +929,42 @@ export default function FaultyTerminal({
         gl.deleteFramebuffer(target.framebuffer);
       }
       gl.deleteVertexArray(vao);
-      gl.deleteProgram(cellShader.program);
-      gl.deleteProgram(mainShader.program);
+    };
+    };
+
+    // Let the GPU compile in the background and check once a frame; without the
+    // extension, wait until the hero's intro has played before the blocking finish.
+    const parallel = gl.getExtension('KHR_parallel_shader_compile');
+    let stop: (() => void) | undefined;
+    let poll = 0;
+    let timer = 0;
+    let cancelled = false;
+    const begin = () => {
+      if (cancelled) return;
+      const cellShader = finishLink(gl, cellProgram);
+      const mainShader = finishLink(gl, mainProgram);
+      if (!cellShader || !mainShader) return;
+      stop = run(cellShader, mainShader);
+      canvas.classList.add('is-live');
+      onReadyRef.current?.();
+    };
+    const waitForShaders = () => {
+      poll = 0;
+      if (cancelled) return;
+      const ready = [cellProgram, mainProgram].every(p => gl.getProgramParameter(p, parallel!.COMPLETION_STATUS_KHR));
+      if (ready) begin();
+      else poll = window.setTimeout(waitForShaders, 150);
+    };
+    if (parallel) poll = window.setTimeout(waitForShaders, 150);
+    else timer = window.setTimeout(begin, 1500);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(poll);
+      clearTimeout(timer);
+      stop?.();
+      gl.deleteProgram(cellProgram);
+      gl.deleteProgram(mainProgram);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, []);

@@ -12,3 +12,13 @@
   width: 100%;
   height: 100%;
 }
+
+/* The canvas fades in once its shaders have compiled in the background. */
+.faulty-terminal-canvas {
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.faulty-terminal-canvas.is-live {
+  opacity: 1;
+}

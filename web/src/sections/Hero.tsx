@@ -1,4 +1,4 @@
-import { lazy, useRef } from 'react';
+import { lazy, useRef, useState } from 'react';
 import { ChatWindow } from '../components/ChatWindow';
 import { Decor } from '../components/Decor';
 import Magnet from '../components/reactbits/Magnet/Magnet';
@@ -14,6 +14,9 @@ const FaultyTerminal = lazy(() => import('../components/reactbits/FaultyTerminal
 export function Hero() {
   const root = useRef<HTMLElement>(null);
   const finePointer = useMediaQuery('(hover: hover) and (pointer: fine)');
+  // A still of the backdrop shows from the first paint; the live shader replaces it once
+  // it has compiled in the background (seconds on some laptop GPUs).
+  const [live, setLive] = useState(false);
 
   useGSAP(
     () => {
@@ -53,7 +56,8 @@ export function Hero() {
 
   return (
     <section id="home" ref={root} className="hero">
-      <div className="hero__bg" aria-hidden="true">
+      <div className={`hero__bg${live ? ' hero__bg--live' : ''}`} aria-hidden="true">
+        <img className="hero__still" src="/hero-terminal.webp" alt="" width={1424} height={830} decoding="async" />
         <Decor enabled={webglEffectsAllowed()}>
           <FaultyTerminal
             tint="#74e0a3"
@@ -71,6 +75,7 @@ export function Hero() {
             mouseGlow={0.7}
             clickEffect="glitch"
             dpr={Math.min(window.devicePixelRatio || 1, 1.5)}
+            onReady={() => setLive(true)}
           />
         </Decor>
       </div>
