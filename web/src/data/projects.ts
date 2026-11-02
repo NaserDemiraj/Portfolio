@@ -66,24 +66,6 @@ export const featured: FeaturedProject[] = [
     image: { src: '/projects/eg-electronics.webp', alt: 'EG Electronics storefront home page', width: 1600, height: 800 },
   },
   {
-    title: 'MAMAJ — Furniture Website',
-    tag: 'live client website · built with a friend',
-    summary: 'The website for MAMAJ, a workshop making handmade, made-to-order furniture, in Albanian.',
-    highlights: [
-      'Collections browsable by room: living room, bedroom, kitchen and dining',
-      'Newest designs, the workshop story and a contact page',
-      'Designed and built together with a friend; live on Vercel',
-    ],
-    stack: ['React', 'Vite', 'React Router', 'CSS'],
-    link: { href: 'https://mobileria-mamaj.vercel.app/', label: 'Live site', kind: 'demo' },
-    image: {
-      src: '/projects/mamaj-furniture.webp',
-      alt: 'MAMAJ furniture website hero: "Mjeshtëri në çdo detaj. Elegancë në çdo ambient." over a wooden interior',
-      width: 1600,
-      height: 800,
-    },
-  },
-  {
     title: 'HumanFlow — AI Writing Platform',
     tag: 'AI SaaS · 2026',
     summary: 'A full writing workspace: humanize, detect, check and rewrite text, with accounts, quotas and a public API.',
@@ -156,6 +138,12 @@ export const featured: FeaturedProject[] = [
 
 export const sideProjects: SideProject[] = [
   {
+    title: 'MAMAJ — Furniture Website',
+    summary: 'The Albanian website of MAMAJ, a workshop making handmade, made-to-order furniture, browsable by room. Built together with a friend.',
+    stack: 'React · Vite · React Router',
+    link: { href: 'https://mobileria-mamaj.vercel.app/', label: 'Live site', kind: 'demo' },
+  },
+  {
     title: 'Contact Cleaner',
     summary: 'Finds the duplicate contacts Excel misses, privately in the browser: files are never uploaded. Free, with a paid Pro edition.',
     stack: 'JavaScript · SheetJS · strict CSP',
@@ -188,5 +176,96 @@ export const sideProjects: SideProject[] = [
     summary: 'Drone control with balancing algorithms and a web interface driving the flight logic.',
     stack: 'Python · MicroPython · IoT',
     link: { href: 'https://github.com/NaserDemiraj/Drone', label: 'View code', kind: 'code' },
+  },
+];
+
+export type Website = {
+  title: string;
+  tag: string;
+  summary: string;
+  highlights: string[];
+  stack: string[];
+  url: string;
+  /** A short muted clip recorded from the live site, and its first frame. */
+  clip: string;
+  poster: string;
+  alt: string;
+};
+
+export const websites: Website[] = [
+  {
+    title: 'Golden Eagle — Energy Drink',
+    tag: 'brand website · 3D',
+    summary: 'A 3D website for Golden Eagle, the energy drink made by Frutex in Suharekë: every can is a real 3D object you turn, open and compare.',
+    highlights: [
+      'All eight flavours on a lit 3D turntable, with the real can labels',
+      'A page per flavour with its own share card; Albanian and English',
+      'Tuned for phones: light shaders, lazy 3D and scroll-driven scenes',
+    ],
+    stack: ['three.js', 'GSAP', 'Lenis', 'Vite'],
+    url: 'https://golden-eagle-nine.vercel.app/',
+    clip: '/sites/golden-eagle.mp4',
+    poster: '/sites/golden-eagle.webp',
+    alt: 'Golden Eagle website: cans of Original, Sugar Free, Red and Tropical spinning in turn on a lit 3D podium',
+  },
+  {
+    title: 'Rina Couture — Evening Dresses',
+    tag: 'client website · fashion',
+    summary: 'The website of an evening-dress boutique where dresses are rented or bought: a lit stage parades the collection, and every dress has its own page.',
+    highlights: [
+      'A dress parade on a 3D stage, and a zoom that keeps full photo quality',
+      'The owner edits the collection in her own CMS (Neon Postgres + Blob storage)',
+      'Rent or buy on WhatsApp, with the dress number already filled in',
+    ],
+    stack: ['React', 'three.js / R3F', 'GSAP', 'Neon', 'Vercel Blob'],
+    url: 'https://rina-couture.vercel.app/',
+    clip: '/sites/rina-couture.mp4',
+    poster: '/sites/rina-couture.webp',
+    alt: 'Rina Couture website: the gold title over a night pool photo, then the evening dress parade under a spotlight',
+  },
+  {
+    title: 'Bella Casa — Furniture Showroom',
+    tag: 'showroom website · built with a friend',
+    summary: 'A furniture showroom with its own back office: rooms in arched frames that echo the logo, the full catalogue, and a CMS the owner runs himself.',
+    highlights: [
+      'Rooms and products in arched frames, with calm GSAP and Lenis motion',
+      'A black-and-gold CMS for rooms, products, photos and pages, plus an invoice page',
+      'Floating WhatsApp on phones and a page title for every room and product',
+    ],
+    stack: ['React', 'Vite', 'GSAP', 'Lenis', 'Node.js', 'Neon Postgres'],
+    url: 'https://bella-casa-five.vercel.app/',
+    clip: '/sites/bella-casa.mp4',
+    poster: '/sites/bella-casa.webp',
+    alt: 'Bella Casa website: a bedroom hero, then the rooms in arched frames and the newest designs',
+  },
+  {
+    title: 'Veranda — Restaurant',
+    tag: 'restaurant website',
+    summary: 'A site for a fire-kitchen terrace restaurant: steam rises off the plate in real time, and the menu swaps dishes like a waiter serving them.',
+    highlights: [
+      'Live WebGL steam over the plate of the day',
+      'Day and night looks from the local time and weather, plus an open-now status',
+      'Table booking and orders on WhatsApp; works offline as an installable app',
+    ],
+    stack: ['Vite', 'GSAP', 'WebGL', 'PWA'],
+    url: 'https://veranda-jet.vercel.app/',
+    clip: '/sites/veranda.mp4',
+    poster: '/sites/veranda.webp',
+    alt: 'Veranda restaurant website: a steak plate in the hero, then the menu changing dishes',
+  },
+  {
+    title: 'Kokrra — Coffee Shop',
+    tag: 'coffee-shop concept',
+    summary: 'A coffee-shop site told as one scroll story: the latte lands, then each drink steps in over its own illustrated jungle.',
+    highlights: [
+      'One drink per scroll step, with the illustrations drawn in code',
+      'A full menu with an order list that checks out on WhatsApp',
+      'Profiled and tuned: main-thread work cut by half',
+    ],
+    stack: ['Vite', 'GSAP', 'Lenis', 'SVG + WebGL'],
+    url: 'https://kokrra-eta.vercel.app/',
+    clip: '/sites/kokrra.mp4',
+    poster: '/sites/kokrra.webp',
+    alt: 'Kokrra coffee-shop website: a steaming latte, then an iced Americano and a latte over orange jungle art',
   },
 ];

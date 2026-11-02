@@ -11,14 +11,14 @@ export const profile = {
   linkedinLabel: 'linkedin.com/in/naser-demiraj',
   cv: '/Naser_Demiraj_CV.pdf',
   intro:
-    'I build full-stack web, mobile, game and IoT systems — from serverless commerce platforms to AI tooling and embedded drone control. Computer Science graduate of AAB University, GPA 9.9.',
+    'I build full-stack web, mobile, game and IoT systems — from AI SaaS platforms and commerce backends to 3D, motion-rich websites for brands and local businesses. Computer Science graduate of AAB University, GPA 9.9.',
   about: {
     lead: "Ambitious and adaptable, I'm deeply passionate about full-stack development and mastering new technologies — delivering efficient, clean and highly usable solutions.",
     body: "My work spans web, mobile, game development, AI and IoT. I pair strong public-speaking and team-leadership skills with a drive to ship impactful, production-ready results, and I'm eager to contribute to open-source communities.",
   },
   stats: [
     { value: 9.9, decimals: 1, suffix: '', label: 'GPA / 10' },
-    { value: 10, decimals: 0, suffix: '+', label: 'projects built' },
+    { value: 15, decimals: 0, suffix: '+', label: 'projects built' },
     { value: 10, decimals: 0, suffix: '', label: 'languages' },
   ],
   education: {

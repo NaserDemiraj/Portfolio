@@ -63,7 +63,7 @@ export function Contact() {
     <section id="contact" ref={root} className="contact">
       <ClickSpark sparkColor="#06140d" sparkSize={12} sparkRadius={26} sparkCount={9} duration={480}>
         <div className="container contact__inner">
-          <SectionHeader index="05" label="contact" tone="ink" />
+          <SectionHeader index="06" label="contact" tone="ink" />
           <h2 className="contact__title">
             Let's build
             <br />

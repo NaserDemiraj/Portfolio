@@ -1556,3 +1556,125 @@ p {
     padding: 24px 20px;
   }
 }
+
+/* ---------- websites: recorded clips of live sites; sideways on wide screens ---------- */
+
+.sites__track {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.sites__hud {
+  display: none;
+}
+
+.site {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.22s ease;
+}
+
+.site:hover {
+  border-color: var(--line-hover);
+}
+
+.site__media {
+  display: flex;
+  align-items: center;
+  padding: clamp(16px, 3vw, 34px);
+  border-bottom: 1px solid var(--line-2);
+  background:
+    radial-gradient(80% 70% at 50% 100%, rgba(116, 224, 163, 0.16), transparent 70%),
+    linear-gradient(180deg, #0c120f, #0f1712);
+}
+
+.site__clip {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #0b100d;
+}
+
+.site__text {
+  padding: clamp(24px, 3.2vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site__text .tags {
+  margin-top: auto;
+}
+
+@media (hover: hover) {
+  .site:hover .frame {
+    transform: none;
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .sites {
+    padding-bottom: 0;
+  }
+  .sites__pin {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+    overflow: hidden;
+    padding-top: 56px;
+  }
+  .sites__hud {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-4);
+  }
+  .sites__count span {
+    color: var(--accent);
+  }
+  .sites__line {
+    flex: 1;
+    height: 1px;
+    background: var(--line-3);
+    overflow: hidden;
+  }
+  .sites__bar {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .sites__track {
+    flex-direction: row;
+    gap: 36px;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    padding-inline: max(var(--gutter), calc((100vw - 1200px) / 2 + var(--gutter)));
+    will-change: transform;
+  }
+  .site {
+    width: min(1060px, 78vw);
+    grid-template-columns: 1.45fr 1fr;
+  }
+  .site__media {
+    border-bottom: 0;
+    border-right: 1px solid var(--line-2);
+  }
+}
