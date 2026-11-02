@@ -1829,4 +1829,22 @@ p {
   .steps__list {
     grid-template-columns: 1fr;
   }
+/* "live demo" badge in a site's browser bar */
+.frame__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.frame__live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(116, 224, 163, 0.18);
 }

@@ -29,8 +29,8 @@ function Page() {
           <About />
           <Skills />
         </VeilRegion>
-        <Work />
         <Websites />
+        <Work />
         <Services />
         <Education />
         <Contact />

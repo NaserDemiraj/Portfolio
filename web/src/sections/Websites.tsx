@@ -57,6 +57,7 @@ function SiteCard({ site, index }: { site: Website; index: number }) {
               <span />
             </span>
             <span className="frame__url">{new URL(site.url).host}</span>
+            <span className="frame__live">live demo</span>
           </div>
           <div className="frame__view">
             <SiteClip site={site} />
@@ -71,7 +72,7 @@ function SiteCard({ site, index }: { site: Website; index: number }) {
           {site.tag}
         </div>
         <h3 className="work__title">{site.title}</h3>
-        <ProjectLinkButton link={{ href: site.url, label: 'Visit site', kind: 'demo' }} />
+        <ProjectLinkButton link={{ href: site.url, label: 'Open live demo', kind: 'demo' }} />
         <p className="work__summary">{site.summary}</p>
         <ul className="work__highlights">
           {site.highlights.map((h) => (
@@ -129,10 +130,10 @@ export function Websites() {
     <section id="websites" ref={root} className="section sites">
       <div className="container">
         <SectionHeader
-          index="04"
+          index="03"
           label="websites"
           title="Websites with motion"
-          aside="Sites for brands and local businesses: 3D, WebGL and scroll-driven scenes, in Albanian and English, all live."
+          aside="Live demos of sites I designed and built for brands and local businesses, with 3D, WebGL and scroll-driven scenes in Albanian and English. The demos run on my own hosting; the businesses' actual websites are hosted separately."
         />
       </div>
       <div ref={pin} className="sites__pin">
