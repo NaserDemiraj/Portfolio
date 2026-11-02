@@ -16,7 +16,7 @@ ABOUT NASER:
 - Graduated in 2026 with a GPA of 9.9/10. Recognized for academic excellence and offered early job opportunities.
 - Languages: Albanian (native), English (C1).
 - Email: naserdemiraj16@gmail.com. GitHub: github.com/NaserDemiraj.
-- Has delivered a paid client e-commerce project, working directly with the client, and built his own AI Receptionist SaaS product. Builds most of his projects solo, end to end; the MAMAJ furniture website was built together with a friend. He also builds motion-rich websites (3D, WebGL, scroll scenes) for brands and local businesses: Golden Eagle, Rina Couture, Veranda, Kokrra, and Bella Casa (built with a friend). The links on his portfolio for these five are live demo copies on his own Vercel hosting; the businesses' actual websites are hosted separately, so always call those links live demos.
+- Has delivered a paid client e-commerce project, working directly with the client, and built his own AI Receptionist SaaS product. Builds most of his projects solo, end to end; the MAMAJ furniture website was built together with a friend. He builds sites in whatever languages a client needs, and his business sites (Rina Couture, Bella Casa, MAMAJ, Veranda) come with a CMS so the owners edit them themselves. He also builds motion-rich websites (3D, WebGL, scroll scenes) for brands and local businesses: Golden Eagle, Rina Couture, Veranda, Kokrra, and Bella Casa (built with a friend). The links on his portfolio for these five are live demo copies on his own Vercel hosting; the businesses' actual websites are hosted separately, so always call those links live demos.
 - His portfolio has a downloadable CV/resume (the "resume" button) and clickable live-demo / GitHub links for several projects.
 - Soft skills: self-driven, owns projects solo, strong problem-solving and communication, detail-oriented, fast learner.
 
@@ -80,7 +80,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 
 9) AI Receptionist (Naser's own independent multi-tenant SaaS product, 2026; he tested it with MAMAJ Furniture as the demo business)
 - Gives any small business a 24/7 AI employee that can be embedded on its website: answers customers, recommends products from a live catalog, captures leads, books appointments, answers policy questions from a knowledge base, follows up automatically, and hands off to a human agent when needed.
-- Detects the customer's language per message: English, Albanian, or German.
+- Detects the customer's language per message and replies in it (tested with English, Albanian and German).
 - Each business also gets a generated public website with the assistant built in, plus an embeddable chat widget (one script tag).
 - Stack: Next.js (App Router) + TypeScript + Tailwind v4, PostgreSQL on Supabase with Prisma ORM, Auth.js v5, Groq behind a provider-agnostic AI adapter, pdf-lib for quote PDFs, Vitest tests.
 - AI flow: language detection, then a system prompt built from the business profile, then a tool-use loop (searchProducts, searchKnowledge, captureLead, bookAppointment, requestHuman), then the reply is saved and notifications fire.
@@ -101,7 +101,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Live: https://naserdemiraj.github.io/contact-cleaner/
 
 13) MAMAJ furniture website (live client website; NOT solo: built together with a friend)
-- The website for MAMAJ, a workshop making handmade, made-to-order furniture ("Mobilie të punuara me dorë"). Albanian-language.
+- The website for MAMAJ, a workshop making handmade, made-to-order furniture ("Mobilie të punuara me dorë"). Managed from its own CMS.
 - Collections browsable by room (living room, bedroom, kitchen, dining), newest designs, an about page and a contact page.
 - Stack: React + Vite with React Router. Deployed on Vercel.
 - Live: https://mobileria-mamaj.vercel.app/
@@ -120,7 +120,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 
 15) Golden Eagle — energy-drink brand website (2026, 3D)
 - A 3D website for Golden Eagle, the energy drink made by Frutex in Suharekë, Kosovo. Each of the eight official flavours is a real 3D can on a lit turntable; you can spin, open and compare them.
-- A page per flavour with its own share card, Albanian first with an English toggle, tuned to stay smooth on phones.
+- A page per flavour with its own share card, in more than one language, tuned to stay smooth on phones.
 - Stack: Vite, three.js, GSAP, Lenis. Live demo: https://golden-eagle-nine.vercel.app/
 
 16) Rina Couture — evening-dress boutique website (client website, 2026)
@@ -130,7 +130,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 
 17) Veranda — restaurant website (2026)
 - A site for a fire-kitchen terrace restaurant: live WebGL steam rises off the plate of the day, and the menu swaps dishes like a waiter serving them.
-- Day and night looks from the local time and weather, an open-now status, table booking and ordering on WhatsApp, and it works offline as an installable app (PWA).
+- The owner edits the menu, dishes and photos in a CMS. Day and night looks from the local time and weather, an open-now status, table booking and ordering on WhatsApp, and it works offline as an installable app (PWA).
 - Stack: Vite, GSAP, WebGL. Live demo: https://veranda-jet.vercel.app/
 
 18) Kokrra — coffee-shop concept website (2026)

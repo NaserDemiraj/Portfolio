@@ -11,7 +11,7 @@ export const services: Service[] = [
   {
     label: 'websites',
     title: 'Websites that sell',
-    summary: 'A fast, bilingual site with motion that suits your brand, and that you can edit yourself.',
+    summary: 'A fast site in the languages you need, with motion that suits your brand and a CMS so you can edit it yourself.',
     points: [
       '3D, WebGL and scroll scenes where they help, calm everywhere else',
       'Your own CMS for products, photos and prices',
@@ -35,7 +35,7 @@ export const services: Service[] = [
     title: 'AI assistants',
     summary: 'A 24/7 assistant on your site that answers customers, recommends products and captures leads.',
     points: [
-      'Answers in Albanian, English or German',
+      'Answers each customer in their own language',
       'Works from your own catalogue and policies',
       'Hands the conversation to a person when it should',
     ],
