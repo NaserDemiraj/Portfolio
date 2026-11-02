@@ -161,7 +161,8 @@
     <h2>Profile</h2>
     <p>
       Full-stack software engineer with a Bachelor of Computer Science from AAB University (graduated 2026, GPA 9.9/10).
-      I build complete products end to end: two AI SaaS platforms, a paid e-commerce store for a client, an AI
+      Backend developer and QA intern at Qeraja (remote). I build complete products end to end: two AI SaaS platforms,
+      a paid e-commerce store for a client, an AI
       fact-checker with its own evaluation study for my thesis, and five live websites for brands and local businesses. Experienced
       across web, mobile, games, AI and IoT, and comfortable running a project from the first client call to launch.
     </p>
@@ -198,7 +199,42 @@
       </div>
     </div>
 
-    <h2>Project Experience</h2>
+    <h2>Experience</h2>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="t">Qeraja <span style="font-weight: 400">· Backend Developer &amp; QA Intern (remote)</span></span>
+        <span class="m">present</span>
+      </div>
+      <ul>
+        <li>Backend development and quality assurance, working remotely with the Qeraja team.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="t">Freelance Web Developer <span style="font-weight: 400">· client websites and stores</span></span>
+        <span class="m">2025 – present · <a href="https://naserdemiraj.is-a.dev/#websites">naserdemiraj.is-a.dev/#websites</a></span>
+      </div>
+      <ul>
+        <li>
+          <b>EG Electronics</b>, a paid e-commerce store: products, cart, authentication and orders, built with the client
+          from requirements to a production release (React, TypeScript, Node.js, Neon).
+        </li>
+        <li>
+          Client websites with their own CMS, so the owners update them themselves: <b>Rina Couture</b> (evening-dress
+          boutique, 3D dress parade), <b>Bella Casa</b> (furniture showroom with invoices) and <b>MAMAJ</b> (handmade
+          furniture); the last two built with a friend.
+        </li>
+        <li>
+          Motion-rich demo sites with 3D, WebGL and scroll scenes: Golden Eagle (energy drink), Veranda (restaurant) and
+          Kokrra (coffee shop); multilingual, with WhatsApp orders and bookings.
+        </li>
+      </ul>
+      <div class="stack">React, Vite, Node.js, three.js, GSAP, Neon PostgreSQL, Vercel Blob, Vercel</div>
+    </div>
+
+    <h2>Projects</h2>
 
     <div class="proj">
       <div class="proj-head">
@@ -240,101 +276,6 @@
       <div class="stack">Next.js 16, TypeScript, Prisma, Neon PostgreSQL, Groq</div>
     </div>
 
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">EG Electronics <span style="font-weight: 400">· e-commerce platform (paid client project)</span></span>
-        <span class="m">2025 · <a href="https://mvc-electronic.vercel.app">mvc-electronic.vercel.app</a></span>
-      </div>
-      <ul>
-        <li>
-          Developed a full-stack e-commerce platform with product management, shopping cart, authentication and order
-          processing workflows.
-        </li>
-        <li>
-          Designed responsive interfaces for desktop and mobile; collaborated directly with the client to gather
-          requirements, implement features and resolve issues, and delivered a production-ready solution.
-        </li>
-      </ul>
-      <div class="stack">React, TypeScript, Node.js, Neon (serverless PostgreSQL)</div>
-    </div>
-
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">Genesis <span style="font-weight: 400">· autonomous economic-agent simulation (private repository)</span></span>
-        <span class="m">2026</span>
-      </div>
-      <ul>
-        <li>
-          Built a Python/FastAPI system in which AI agents research, build and evaluate ways to earn money under a hard
-          $20 capital ceiling that the double-entry ledger itself enforces.
-        </li>
-        <li>
-          Deterministic risk engine that must approve every real-money action, owner-only append-only capital policy,
-          approvals bound to a text fingerprint, sandboxed prototype execution, and 500+ automated tests including
-          browser tests.
-        </li>
-        <li>
-          Revenue is recorded only against a payment the owner has verified; it has no recorded revenue yet.
-        </li>
-      </ul>
-      <div class="stack">Python, FastAPI, SQLAlchemy / Alembic, Playwright</div>
-    </div>
-
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">IoT Drone Control <span style="font-weight: 400">· balancing quadcopter</span></span>
-        <span class="m"><a href="https://github.com/NaserDemiraj/Drone">github.com/NaserDemiraj/Drone</a></span>
-      </div>
-      <ul>
-        <li>
-          Built a remote-controlled drone around an ESP32, an MPU6050 accelerometer/gyroscope (I2C), a
-          TB6612FNG motor driver and four DC motors, with the frame and battery.
-        </li>
-        <li>
-          A PID controller keeps it balanced on pitch, roll and yaw through PWM motor control; it returns to a stable
-          hover automatically after inactivity.
-        </li>
-        <li>
-          FastAPI backend exposing a REST API and a web interface that sends movement commands (up, down, forward,
-          backward, left, right, rotate); mock pin, PWM and sensor classes let the logic be tested without the hardware.
-        </li>
-      </ul>
-      <div class="stack">Python, MicroPython, ESP32, FastAPI</div>
-    </div>
-
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">3D Survival Game <span style="font-weight: 400">· solo, Unity</span></span>
-        <span class="m"><a href="https://github.com/NaserDemiraj/3D-UnityGame">github.com/NaserDemiraj/3D-UnityGame</a></span>
-      </div>
-      <ul>
-        <li>
-          Built the whole game myself: an open world with a forest, a village, a river and mountains, where the goal is
-          to find the items hidden across the map before a countdown timer runs out.
-        </li>
-        <li>
-          Wrote the game logic in C# (levels, item collection, time-based objectives that raise the pressure) and the
-          on-screen UI showing level, time left and items found; realistic physics, including flowing river water.
-        </li>
-      </ul>
-      <div class="stack">Unity, C#</div>
-    </div>
-
-    <div class="proj">
-      <div class="proj-head">
-        <span class="t">Websites for brands and local businesses <span style="font-weight: 400">· five live demos</span></span>
-        <span class="m">2026 · <a href="https://naserdemiraj.is-a.dev/#websites">naserdemiraj.is-a.dev/#websites</a></span>
-      </div>
-      <ul>
-        <li>
-          Golden Eagle (energy drink, 3D cans on a lit turntable), Rina Couture (evening-dress boutique with its own CMS),
-          Bella Casa (furniture showroom with a CMS, built with a friend), Veranda (restaurant with a menu CMS and live
-          WebGL steam) and Kokrra (coffee-shop scroll story); multilingual, with WhatsApp orders and bookings.
-        </li>
-      </ul>
-      <div class="stack">React, Vite, three.js, GSAP, Lenis, WebGL, Neon PostgreSQL, Vercel</div>
-    </div>
-
 
     <div class="proj">
       <div class="proj-head">
@@ -354,6 +295,59 @@
       <div class="stack">C# / .NET 8, Next.js, Neon PostgreSQL, Docker, Python (evaluation)</div>
     </div>
 
+    <div class="proj">
+      <div class="proj-head">
+        <span class="t">Genesis <span style="font-weight: 400">· autonomous economic-agent simulation (private repository)</span></span>
+        <span class="m">2026</span>
+      </div>
+      <ul>
+        <li>
+          Built a Python/FastAPI system in which AI agents research, build and evaluate ways to earn money under a hard
+          $20 capital ceiling that the double-entry ledger itself enforces.
+        </li>
+        <li>
+          Deterministic risk engine that must approve every real-money action, sandboxed prototype execution and 500+
+          automated tests; no revenue is recorded without a payment the owner has verified.
+        </li>
+      </ul>
+      <div class="stack">Python, FastAPI, SQLAlchemy / Alembic, Playwright</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="t">IoT Drone Control <span style="font-weight: 400">· balancing quadcopter</span></span>
+        <span class="m"><a href="https://github.com/NaserDemiraj/Drone">github.com/NaserDemiraj/Drone</a></span>
+      </div>
+      <ul>
+        <li>
+          Built a drone around an ESP32, an MPU6050 IMU and four DC motors; a PID controller keeps it balanced on pitch,
+          roll and yaw through PWM, and it returns to a stable hover after inactivity.
+        </li>
+        <li>
+          FastAPI REST API and web interface for the flight commands; mock pin, PWM and sensor classes test the logic
+          without the hardware.
+        </li>
+      </ul>
+      <div class="stack">Python, MicroPython, ESP32, FastAPI</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <span class="t">3D Survival Game <span style="font-weight: 400">· solo, Unity</span></span>
+        <span class="m"><a href="https://github.com/NaserDemiraj/3D-UnityGame">github.com/NaserDemiraj/3D-UnityGame</a></span>
+      </div>
+      <ul>
+        <li>
+          Built the whole game myself: an open world (forest, village, river, mountains) where you find hidden items
+          before the timer runs out; game logic, levels and UI in C#, with realistic physics.
+        </li>
+      </ul>
+      <div class="stack">Unity, C#</div>
+    </div>
+
+
+
+
 
     <div class="proj">
       <div class="proj-head">
@@ -371,7 +365,6 @@
         <li><b>AI Chatbot</b> (Python, Gemini API): real-time chatbot with a web frontend.</li>
         <li><b>Online Voting System</b> (PHP, MySQL): sessions, user validation and OTP login.</li>
         <li><b>Shopware 6 QA Automation</b> (Playwright, TypeScript): test plan, bug report and checkout tests.</li>
-        <li><b>MAMAJ Furniture website</b> (React, Vite; built with a friend): live site with a CMS for a handmade-furniture workshop.</li>
       </ul>
     </div>
 
