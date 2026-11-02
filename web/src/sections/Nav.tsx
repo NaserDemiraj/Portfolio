@@ -5,6 +5,7 @@ import { ScrollTrigger } from '../motion/gsap';
 
 const LINKS = [
   { href: '#about', label: 'about' },
+  { href: '#websites', label: 'websites' },
   { href: '#work', label: 'work' },
   { href: '#contact', label: 'contact' },
 ];

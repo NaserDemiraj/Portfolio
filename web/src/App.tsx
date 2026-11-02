@@ -9,6 +9,7 @@ import { Hero } from './sections/Hero';
 import { Nav } from './sections/Nav';
 import { Skills } from './sections/Skills';
 import { StackStrip } from './sections/StackStrip';
+import { Websites } from './sections/Websites';
 import { Work } from './sections/Work';
 
 function Page() {
@@ -27,6 +28,7 @@ function Page() {
           <About />
           <Skills />
         </VeilRegion>
+        <Websites />
         <Work />
         <Education />
         <Contact />

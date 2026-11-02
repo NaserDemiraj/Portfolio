@@ -147,10 +147,10 @@ export function Work() {
     <section id="work" ref={root} className="section">
       <div className="container">
         <SectionHeader
-          index="03"
+          index="04"
           label="work"
           title="Selected work"
-          aside="Two AI SaaS platforms, two client websites, an AI fact-checker and a Unity game, plus the side projects behind them."
+          aside="Two AI SaaS platforms, a paid client store, an AI fact-checker and a Unity game, plus the side projects behind them."
         />
 
         {stacked ? (
