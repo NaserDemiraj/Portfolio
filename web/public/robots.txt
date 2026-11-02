@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://naserdemiraj.vercel.app/sitemap.xml
+Sitemap: https://naserdemiraj.is-a.dev/sitemap.xml

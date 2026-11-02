@@ -85,16 +85,16 @@ export const featured: FeaturedProject[] = [
     },
   },
   {
-    title: 'Fake News Detection Platform',
-    tag: 'AI platform',
+    title: 'VerifyNews — AI Fact-Checker',
+    tag: 'BSc thesis · AI platform · 2026',
     summary:
-      'A full-stack platform that scores how credible a news article is.',
+      'Paste an article or a link, or click the browser extension on any page, and get a credibility score with the red flags behind it, checked against live web sources.',
     highlights: [
-      'AI-powered credibility scoring',
-      'C# / .NET backend with a React + Tailwind frontend',
-      'Real-time interaction design',
+      'An LLM grounded in web search, with fallback across Groq, Gemini and other providers',
+      'Defended against prompt injection: no attack in the thesis tests changed a verdict on the production model',
+      'Evaluated in 8 languages including Albanian, and against a classic baseline that falls apart on a new dataset',
     ],
-    stack: ['C# / .NET', 'React', 'Tailwind', 'AI scoring'],
+    stack: ['C# / .NET 8', 'Next.js', 'Neon Postgres', 'Browser extension', 'Docker'],
     link: {
       href: 'https://fake-news-detector-thesis-topic.vercel.app/landing.html',
       label: 'Live demo',
