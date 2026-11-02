@@ -5,6 +5,7 @@ export const profile = {
   email: 'naserdemiraj16@gmail.com',
   phone: '+383 49 121 548',
   phoneHref: 'tel:+38349121548',
+  whatsapp: 'https://wa.me/38349121548',
   github: 'https://github.com/NaserDemiraj',
   githubLabel: 'github.com/NaserDemiraj',
   linkedin: 'https://www.linkedin.com/in/naser-demiraj-662a61418/',
