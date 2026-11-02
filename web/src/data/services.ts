@@ -11,7 +11,7 @@ export const services: Service[] = [
   {
     label: 'websites',
     title: 'Websites that sell',
-    summary: 'A fast site in the languages you need, with motion that suits your brand and a CMS so you can edit it yourself.',
+    summary: 'A fast site in the languages you choose, with motion that suits your brand and a CMS so you can edit it yourself.',
     points: [
       '3D, WebGL and scroll scenes where they help, calm everywhere else',
       'Your own CMS for products, photos and prices',
