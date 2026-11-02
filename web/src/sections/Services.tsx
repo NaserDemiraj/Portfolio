@@ -30,7 +30,7 @@ export function Services() {
           index="05"
           label="services"
           title="What I can build for you"
-          aside="For businesses in Kosovo, Albania and beyond, in Albanian or English, from the first call to launch."
+          aside="For businesses in Kosovo, Albania and beyond, in any language your customers speak, from the first call to launch."
         />
 
         <div className="svc">

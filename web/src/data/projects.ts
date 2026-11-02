@@ -30,7 +30,7 @@ export const featured: FeaturedProject[] = [
     summary: 'My own multi-tenant SaaS that gives any small business a 24/7 AI employee on its website. Tested with MAMAJ Furniture as the demo business.',
     highlights: [
       'Recommends products from a live catalog, captures leads and books appointments',
-      'Answers in English, Albanian or German, detected per message, and hands off to a human agent',
+      'Answers each customer in their own language, detected per message, and hands off to a human agent',
       'Every business is isolated by org-scoped tenancy; each also gets a generated public website',
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase Postgres', 'Prisma', 'Groq tool use'],
@@ -92,7 +92,7 @@ export const featured: FeaturedProject[] = [
     highlights: [
       'An LLM grounded in web search, with fallback across Groq, Gemini and other providers',
       'Defended against prompt injection: no attack in the thesis tests changed a verdict on the production model',
-      'Evaluated in 8 languages including Albanian, and against a classic baseline that falls apart on a new dataset',
+      'Evaluated in 8 languages, and against a classic baseline that falls apart on a new dataset',
     ],
     stack: ['C# / .NET 8', 'Next.js', 'Neon Postgres', 'Browser extension', 'Docker'],
     link: {
@@ -139,7 +139,7 @@ export const featured: FeaturedProject[] = [
 export const sideProjects: SideProject[] = [
   {
     title: 'MAMAJ — Furniture Website',
-    summary: 'The Albanian website of MAMAJ, a workshop making handmade, made-to-order furniture, browsable by room. Built together with a friend.',
+    summary: 'The website of MAMAJ, a workshop making handmade, made-to-order furniture: the collection by room, managed from its own CMS. Built together with a friend.',
     stack: 'React · Vite · React Router',
     link: { href: 'https://mobileria-mamaj.vercel.app/', label: 'Live site', kind: 'demo' },
   },
@@ -199,7 +199,7 @@ export const websites: Website[] = [
     summary: 'A 3D website for Golden Eagle, the energy drink made by Frutex in Suharekë: every can is a real 3D object you turn, open and compare.',
     highlights: [
       'All eight flavours on a lit 3D turntable, with the real can labels',
-      'A page per flavour with its own share card; Albanian and English',
+      'A page per flavour with its own share card, in more than one language',
       'Tuned for phones: light shaders, lazy 3D and scroll-driven scenes',
     ],
     stack: ['three.js', 'GSAP', 'Lenis', 'Vite'],
@@ -245,7 +245,7 @@ export const websites: Website[] = [
     highlights: [
       'Live WebGL steam over the plate of the day',
       'Day and night looks from the local time and weather, plus an open-now status',
-      'Table booking and orders on WhatsApp; works offline as an installable app',
+      'A CMS for the menu, dishes and photos; table booking and orders on WhatsApp',
     ],
     stack: ['Vite', 'GSAP', 'WebGL', 'PWA'],
     url: 'https://veranda-jet.vercel.app/',

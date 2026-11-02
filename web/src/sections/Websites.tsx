@@ -104,7 +104,7 @@ export function Websites() {
           index="03"
           label="websites"
           title="Websites with motion"
-          aside="Live demos of sites I designed and built for brands and local businesses, with 3D, WebGL and scroll-driven scenes in Albanian and English. The demos run on my own hosting; the businesses' actual websites are hosted separately."
+          aside="Live demos of sites I designed and built for brands and local businesses, with 3D, WebGL and scroll-driven scenes. The business sites come with a CMS, so the owners update them themselves. The demos run on my own hosting; the businesses' actual websites are hosted separately."
         />
 
         {stacked ? (
