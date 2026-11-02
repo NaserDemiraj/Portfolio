@@ -86,12 +86,12 @@ export const featured: FeaturedProject[] = [
   },
   {
     title: 'VerifyNews — AI Fact-Checker',
-    tag: 'AI platform · with an evaluation study · 2026',
+    tag: 'BSc thesis · AI platform · 2026',
     summary:
       'Paste an article or a link, or click the browser extension on any page, and get a credibility score with the red flags behind it, checked against live web sources.',
     highlights: [
       'An LLM grounded in web search, with fallback across Groq, Gemini and other providers',
-      'Defended against prompt injection: no attack in its tests changed a verdict on the production model',
+      'Defended against prompt injection: no attack in the thesis tests changed a verdict on the production model',
       'Evaluated in 8 languages including Albanian, and against a classic baseline that falls apart on a new dataset',
     ],
     stack: ['C# / .NET 8', 'Next.js', 'Neon Postgres', 'Browser extension', 'Docker'],

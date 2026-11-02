@@ -54,7 +54,7 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Written in Python/MicroPython. Includes mock classes that simulate the pins, PWM, and sensor so the logic can be tested without the physical drone.
 - GitHub: github.com/NaserDemiraj/Drone.
 
-5) Psychologist Appointment Scheduler (bachelor thesis)
+5) Psychologist Appointment Scheduler
 - Frontend: React.js + Tailwind. Backend: Node.js + Express. Database: Neon PostgreSQL with Prisma ORM. Auth: JWT. Passwords stored encrypted.
 - Lets users book mental-health sessions online with psychologists. Prevents double bookings, sends automatic notifications, and frees slots on cancellation.
 - Three roles, each with its own dashboard: patient, psychologist, admin. Session reports can be exported to PDF or Excel.
@@ -65,10 +65,10 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 - Database tables: admin, voters, candidates, positions, votes. Each voter casts one secure vote per position; admins manage candidates/positions and see results in real time.
 - Security: hashed passwords, SQL-injection protection, OTP login. Responsive design; tested for functionality, security, load, and usability.
 
-7) VerifyNews — AI fact-checker (2026, with a full evaluation study)
+7) VerifyNews — AI fact-checker (Naser's BSc thesis project, 2026, with a full evaluation study)
 - Scores how credible a news article is: paste text or a link, or use the Manifest V3 browser extension to analyse the current page or selected text. Returns a score, a verdict and the red flags behind it.
 - An LLM grounded in live web search (Tavily) and fact-check sources, with provider fallback (Groq, Gemini, Cerebras, xAI, local Ollama). Accounts with email verification, analysis history, batch analysis and shareable results.
-- Prompt-injection defense: the article is fenced as untrusted data and injected instructions are treated as a red flag. In its evaluation, no attack changed a verdict on the production 70B model (0 of 10 trials); on a small 8B model the defense cut attack success by about a third.
+- Prompt-injection defense: the article is fenced as untrusted data and injected instructions are treated as a red flag. In the thesis evaluation, no attack changed a verdict on the production 70B model (0 of 10 trials); on a small 8B model the defense cut attack success by about a third.
 - Evaluation study (C# runner + Python analyses): a TF-IDF baseline reaches 98.7% F1 on the ISOT dataset but collapses to about 49% on LIAR, while the LLM transfers across datasets; a small multilingual test across 8 languages, including Albanian, detected every language and verdict correctly (n=18, a capability demo rather than a precise estimate).
 - Stack: C# / .NET 8 backend with tests and CI, Next.js frontend, Neon Postgres, Docker (backend hosted on a Hugging Face Space).
 - Live demo: https://fake-news-detector-thesis-topic.vercel.app/landing.html. GitHub: github.com/NaserDemiraj/Fake-News-Detector-Thesis-Topic-.

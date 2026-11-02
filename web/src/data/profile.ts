@@ -14,7 +14,7 @@ export const profile = {
   intro:
     'I build full-stack web, mobile, game and IoT systems — from AI SaaS platforms and commerce backends to 3D, motion-rich websites for brands and local businesses. Computer Science graduate of AAB University, GPA 9.9.',
   about: {
-    lead: 'I build complete products, end to end: two AI SaaS platforms, a paid e-commerce store for a client, an AI fact-checker and five live websites for brands and local businesses.',
+    lead: 'I build complete products, end to end: two AI SaaS platforms, a paid e-commerce store for a client, an AI fact-checker for my thesis and five live websites for brands and local businesses.',
     body: "My work spans web, mobile, games, AI and IoT. I care about what people actually feel: a page that stays fast on a cheap phone, motion that helps instead of distracting, and Albanian and English both done properly. I'm comfortable running a project myself, from the first call with a client to launch.",
   },
   stats: [

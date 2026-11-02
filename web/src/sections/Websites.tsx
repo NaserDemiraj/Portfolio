@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { ProjectLinkButton } from '../components/ProjectLinkButton';
+import ScrollStack, { ScrollStackItem } from '../components/reactbits/ScrollStack/ScrollStack';
 import { SectionHeader } from '../components/SectionHeader';
 import { websites, type Website } from '../data/projects';
-import { gsap, MOTION_OK, useGSAP } from '../motion/gsap';
-
-// Wide screens: the cards slide sideways while the section is pinned.
-const SIDEWAYS = `(min-width: 1024px) and ${MOTION_OK}`;
+import { useMediaQuery } from '../hooks/useMediaQuery';
+import { MOTION_OK, STACKED } from '../motion/gsap';
 
 // A clip plays only while its card is on screen, so the four videos never run at once.
 // With reduced motion the poster frame stays.
@@ -45,26 +44,11 @@ function SiteClip({ site }: { site: Website }) {
   );
 }
 
+// Same card as Selected work: the story on the left, the live demo's clip on the right.
 function SiteCard({ site, index }: { site: Website; index: number }) {
   return (
-    <article className="site">
-      <a className="site__media" href={site.url} target="_blank" rel="noopener" tabIndex={-1} aria-hidden="true">
-        <div className="frame">
-          <div className="frame__bar">
-            <span className="frame__dots">
-              <span />
-              <span />
-              <span />
-            </span>
-            <span className="frame__url">{new URL(site.url).host}</span>
-            <span className="frame__live">live demo</span>
-          </div>
-          <div className="frame__view">
-            <SiteClip site={site} />
-          </div>
-        </div>
-      </a>
-      <div className="site__text">
+    <article className="work__card site">
+      <div className="work__text">
         <div className="work__tag">
           <span className="work__index">
             {String(index + 1).padStart(2, '0')} / {String(websites.length).padStart(2, '0')}
@@ -87,47 +71,34 @@ function SiteCard({ site, index }: { site: Website; index: number }) {
           ))}
         </ul>
       </div>
+      <div className="work__media">
+        <a className="site__link" href={site.url} target="_blank" rel="noopener" tabIndex={-1} aria-hidden="true">
+          <div className="frame">
+            <div className="frame__bar">
+              <span className="frame__dots">
+                <span />
+                <span />
+                <span />
+              </span>
+              <span className="frame__url">{new URL(site.url).host}</span>
+              <span className="frame__live">live demo</span>
+            </div>
+            <div className="frame__view">
+              <SiteClip site={site} />
+            </div>
+          </div>
+        </a>
+      </div>
     </article>
   );
 }
 
 export function Websites() {
-  const root = useRef<HTMLElement>(null);
-  const pin = useRef<HTMLDivElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-  const bar = useRef<HTMLDivElement>(null);
-  const count = useRef<HTMLSpanElement>(null);
-
-  // Pin the row and move it sideways as the page scrolls; the bar and counter follow.
-  useGSAP(
-    () => {
-      gsap.matchMedia().add(SIDEWAYS, () => {
-        const row = track.current!;
-        const distance = () => row.scrollWidth - window.innerWidth;
-        gsap.to(row, {
-          x: () => -distance(),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: pin.current,
-            start: 'top top',
-            end: () => `+=${distance() * 0.55}`,
-            pin: true,
-            scrub: 0.7,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              if (bar.current) bar.current.style.transform = `scaleX(${self.progress})`;
-              const n = Math.min(websites.length, Math.floor(self.progress * websites.length) + 1);
-              if (count.current) count.current.textContent = String(n).padStart(2, '0');
-            },
-          },
-        });
-      });
-    },
-    { scope: root },
-  );
+  // Cards pin and stack from tablet width up; otherwise a plain list.
+  const stacked = useMediaQuery(STACKED);
 
   return (
-    <section id="websites" ref={root} className="section sites">
+    <section id="websites" className="section">
       <div className="container">
         <SectionHeader
           index="03"
@@ -135,22 +106,35 @@ export function Websites() {
           title="Websites with motion"
           aside="Live demos of sites I designed and built for brands and local businesses, with 3D, WebGL and scroll-driven scenes in Albanian and English. The demos run on my own hosting; the businesses' actual websites are hosted separately."
         />
-      </div>
-      <div ref={pin} className="sites__pin">
-        <div className="container sites__hud" aria-hidden="true">
-          <span className="sites__count">
-            <span ref={count}>01</span> / {String(websites.length).padStart(2, '0')}
-          </span>
-          <span className="sites__line">
-            <span ref={bar} className="sites__bar" />
-          </span>
-          <span className="sites__hint">scroll →</span>
-        </div>
-        <div ref={track} className="sites__track">
-          {websites.map((s, i) => (
-            <SiteCard key={s.title} site={s} index={i} />
-          ))}
-        </div>
+
+        {stacked ? (
+          <ScrollStack
+            className="work__stack"
+            useWindowScroll
+            smoothScroll={false}
+            stackPosition="14%"
+            itemDistance={70}
+            itemStackDistance={26}
+            itemScale={0.04}
+            baseScale={0.88}
+            dimAmount={0.35}
+            holdDistance={40}
+          >
+            {websites.map((s, i) => (
+              <ScrollStackItem key={s.title} itemClassName="work__stack-item">
+                <SiteCard site={s} index={i} />
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        ) : (
+          <div className="work__list">
+            {websites.map((s, i) => (
+              <div key={s.title} className="reveal">
+                <SiteCard site={s} index={i} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

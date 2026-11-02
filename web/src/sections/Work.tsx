@@ -1,11 +1,11 @@
 import { useRef, type CSSProperties } from 'react';
 import { ProjectLinkButton } from '../components/ProjectLinkButton';
-import ScrollStack, { ScrollStackItem } from '../components/reactbits/ScrollStack/ScrollStack';
 import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 import { SectionHeader } from '../components/SectionHeader';
+import { Sideways } from '../components/Sideways';
 import { featured, sideProjects, type FeaturedProject, type Shot } from '../data/projects';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import { gsap, MOTION_OK, ScrollTrigger, useGSAP } from '../motion/gsap';
+import { gsap, MOTION_OK, ScrollTrigger, SIDEWAYS, useGSAP } from '../motion/gsap';
 
 // Phones and tablets: no hover, so effects that desktop triggers on hover run on scroll instead.
 const TOUCH = '(hover: none)';
@@ -90,8 +90,8 @@ function ProjectCard({ project, index }: { project: FeaturedProject; index: numb
 
 export function Work() {
   const root = useRef<HTMLElement>(null);
-  // Cards pin and stack on desktop; on small screens or with reduced motion they're a plain list.
-  const stacked = useMediaQuery(`(min-width: 861px) and ${MOTION_OK}`);
+  // Cards slide sideways on wide screens; on smaller screens or with reduced motion they're a plain list.
+  const sideways = useMediaQuery(SIDEWAYS);
   const touch = useMediaQuery(TOUCH);
 
   // Touch equivalent of the desktop deck + hover effects, scrubbed by scroll position:
@@ -140,7 +140,7 @@ export function Work() {
         });
       });
     },
-    { scope: root, dependencies: [stacked] },
+    { scope: root, dependencies: [sideways] },
   );
 
   return (
@@ -150,29 +150,17 @@ export function Work() {
           index="04"
           label="work"
           title="Selected work"
-          aside="Two AI SaaS platforms, a paid client store, an AI fact-checker and a Unity game, plus the side projects behind them."
+          aside="Two AI SaaS platforms, a paid client store, my thesis AI fact-checker and a Unity game, plus the side projects behind them."
         />
-
-        {stacked ? (
-          <ScrollStack
-            className="work__stack"
-            useWindowScroll
-            smoothScroll={false}
-            stackPosition="14%"
-            itemDistance={70}
-            itemStackDistance={26}
-            itemScale={0.04}
-            baseScale={0.88}
-            dimAmount={0.35}
-            holdDistance={40}
-          >
-            {featured.map((p, i) => (
-              <ScrollStackItem key={p.title} itemClassName="work__stack-item">
-                <ProjectCard project={p} index={i} />
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
-        ) : (
+      </div>
+      {sideways ? (
+        <Sideways count={featured.length}>
+          {featured.map((p, i) => (
+            <ProjectCard key={p.title} project={p} index={i} />
+          ))}
+        </Sideways>
+      ) : (
+        <div className="container">
           <div className="work__list">
             {featured.map((p, i) => (
               <div key={p.title} className={touch ? undefined : 'reveal'}>
@@ -180,8 +168,10 @@ export function Work() {
               </div>
             ))}
           </div>
-        )}
+        </div>
+      )}
 
+      <div className="container">
         <div className="more reveal">
           <div className="more__label">// more projects</div>
           <div className="more__grid">
