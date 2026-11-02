@@ -7,6 +7,7 @@ const LINKS = [
   { href: '#about', label: 'about' },
   { href: '#work', label: 'work' },
   { href: '#websites', label: 'websites' },
+  { href: '#services', label: 'services' },
   { href: '#contact', label: 'contact' },
 ];
 

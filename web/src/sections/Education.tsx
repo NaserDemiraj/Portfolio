@@ -6,7 +6,7 @@ export function Education() {
   return (
     <section id="education" className="section">
       <div className="container">
-        <SectionHeader index="05" label="education" />
+        <SectionHeader index="06" label="education" />
         <div className="edu-card reveal">
           <div className="edu">
             <div>

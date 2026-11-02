@@ -1,7 +1,7 @@
 import { useRef, useState, type ReactNode } from 'react';
 import ClickSpark from '../components/reactbits/ClickSpark/ClickSpark';
 import Magnet from '../components/reactbits/Magnet/Magnet';
-import { GitHubIcon, LinkedInBadge, MailIcon, PhoneIcon } from '../components/Icons';
+import { GitHubIcon, LinkedInBadge, MailIcon, PhoneIcon, WhatsAppIcon } from '../components/Icons';
 import { SectionHeader } from '../components/SectionHeader';
 import { profile } from '../data/profile';
 import { useMediaQuery } from '../hooks/useMediaQuery';
@@ -63,14 +63,14 @@ export function Contact() {
     <section id="contact" ref={root} className="contact">
       <ClickSpark sparkColor="#06140d" sparkSize={12} sparkRadius={26} sparkCount={9} duration={480}>
         <div className="container contact__inner">
-          <SectionHeader index="06" label="contact" tone="ink" />
+          <SectionHeader index="07" label="contact" tone="ink" />
           <h2 className="contact__title">
             Let's build
             <br />
             something.
           </h2>
           <p className="contact__lead">
-            Have a project in mind or just want to talk shop? Email is the fastest way to reach me.
+            Have a project in mind or just want to talk shop? Email or WhatsApp is the fastest way to reach me.
           </p>
           <div className="contact__links">
             <div className="contact__email">
@@ -82,6 +82,12 @@ export function Contact() {
               </Magnetic>
               <CopyEmail />
             </div>
+            <Magnetic>
+              <a href={profile.whatsapp} target="_blank" rel="noopener" className="btn btn--outline-dark">
+                <WhatsAppIcon />
+                WhatsApp
+              </a>
+            </Magnetic>
             <Magnetic>
               <a href={profile.phoneHref} className="btn btn--outline-dark">
                 <PhoneIcon />
