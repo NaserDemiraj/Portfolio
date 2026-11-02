@@ -1931,3 +1931,38 @@ p {
   scroll-snap-align: start;
 }
 
+/* ---------- skills: compact rows of tags inside About ---------- */
+
+.skillrows {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 12px;
+  margin: 26px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-2);
+}
+
+.skillrows__row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.skillrows dt {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.skillrows dd {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .skillrows__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+

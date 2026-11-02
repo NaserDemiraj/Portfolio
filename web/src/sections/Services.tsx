@@ -27,7 +27,7 @@ export function Services() {
     <section id="services" ref={root} className="section">
       <div className="container">
         <SectionHeader
-          index="05"
+          index="04"
           label="services"
           title="What I can build for you"
           aside="For businesses in Kosovo, Albania and beyond, in the languages you choose, from the first call to launch."

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import ScrollReveal from '../components/reactbits/ScrollReveal/ScrollReveal';
 import { SectionHeader } from '../components/SectionHeader';
 import { profile } from '../data/profile';
+import { skillGroups } from '../data/skills';
 import { gsap, MOTION_OK, useGSAP } from '../motion/gsap';
 
 export function About() {
@@ -65,6 +66,22 @@ export function About() {
                 </div>
               ))}
           </div>
+          <dl className="skillrows reveal" aria-label="Skills">
+            {skillGroups.map((g) => (
+              <div key={g.title} className="skillrows__row">
+                <dt>{g.title}</dt>
+                <dd>
+                  <ul className="tags">
+                    {g.items.map((item) => (
+                      <li key={item} className="tag">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

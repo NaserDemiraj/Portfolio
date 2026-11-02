@@ -177,7 +177,7 @@ export function Work() {
     <section id="work" ref={root} className="section">
       <div className="container">
         <SectionHeader
-          index="04"
+          index="03"
           label="work"
           title="Selected work"
           aside="Two AI SaaS platforms, a paid client store, my thesis AI fact-checker and a Unity game, plus the side projects behind them."
