@@ -1813,3 +1813,33 @@ p {
   background: var(--accent);
   box-shadow: 0 0 0 3px rgba(116, 224, 163, 0.18);
 }
+
+/* Short laptop screens: keep every sideways card inside the viewport. */
+@media (max-height: 820px) {
+  .side {
+    gap: 14px;
+    padding-top: 48px;
+  }
+  .side__track .work__text {
+    padding-block: 26px;
+  }
+  .side__track .work__title {
+    margin-bottom: 10px;
+  }
+  .side__track .work__summary {
+    margin-bottom: 14px;
+  }
+  .side__track .work__highlights {
+    margin-bottom: 16px;
+  }
+  .side__track .frame__shot {
+    max-height: calc(100vh - 300px);
+    object-position: top center;
+  }
+}
+
+@media (max-height: 740px) {
+  .side__track .work__highlights li:nth-child(n + 3) {
+    display: none;
+  }
+}
