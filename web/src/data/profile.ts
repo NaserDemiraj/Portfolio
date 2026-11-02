@@ -11,7 +11,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/naser-demiraj-662a61418/',
   linkedinLabel: 'linkedin.com/in/naser-demiraj',
   // the ?v= changes whenever the CV does, so browsers never show a cached old copy
-  cv: '/Naser_Demiraj_CV.pdf?v=2026-11-03',
+  cv: '/Naser_Demiraj_CV.pdf?v=2026-11-04',
   intro:
     'I build full-stack web, mobile, game and IoT systems — from AI SaaS platforms and commerce backends to 3D, motion-rich websites for brands and local businesses. Computer Science graduate of AAB University, GPA 9.9.',
   about: {
