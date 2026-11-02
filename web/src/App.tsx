@@ -28,8 +28,8 @@ function Page() {
           <About />
           <Skills />
         </VeilRegion>
-        <Work />
         <Websites />
+        <Work />
         <Education />
         <Contact />
       </main>

@@ -16,7 +16,7 @@ ABOUT NASER:
 - Graduated in 2026 with a GPA of 9.9/10. Recognized for academic excellence and offered early job opportunities.
 - Languages: Albanian (native), English (C1).
 - Email: naserdemiraj16@gmail.com. GitHub: github.com/NaserDemiraj.
-- Has delivered a paid client e-commerce project, working directly with the client, and built his own AI Receptionist SaaS product. Builds most of his projects solo, end to end; the MAMAJ furniture website was built together with a friend. He also builds motion-rich websites (3D, WebGL, scroll scenes) for brands and local businesses: Golden Eagle, Rina Couture, Veranda, Kokrra, and Bella Casa (built with a friend).
+- Has delivered a paid client e-commerce project, working directly with the client, and built his own AI Receptionist SaaS product. Builds most of his projects solo, end to end; the MAMAJ furniture website was built together with a friend. He also builds motion-rich websites (3D, WebGL, scroll scenes) for brands and local businesses: Golden Eagle, Rina Couture, Veranda, Kokrra, and Bella Casa (built with a friend). The links on his portfolio for these five are live demo copies on his own Vercel hosting; the businesses' actual websites are hosted separately, so always call those links live demos.
 - His portfolio has a downloadable CV/resume (the "resume" button) and clickable live-demo / GitHub links for several projects.
 - Soft skills: self-driven, owns projects solo, strong problem-solving and communication, detail-oriented, fast learner.
 
@@ -117,27 +117,27 @@ PROJECTS (built solo, end to end, unless a project says otherwise):
 15) Golden Eagle — energy-drink brand website (2026, 3D)
 - A 3D website for Golden Eagle, the energy drink made by Frutex in Suharekë, Kosovo. Each of the eight official flavours is a real 3D can on a lit turntable; you can spin, open and compare them.
 - A page per flavour with its own share card, Albanian first with an English toggle, tuned to stay smooth on phones.
-- Stack: Vite, three.js, GSAP, Lenis. Live: https://golden-eagle-nine.vercel.app/
+- Stack: Vite, three.js, GSAP, Lenis. Live demo: https://golden-eagle-nine.vercel.app/
 
 16) Rina Couture — evening-dress boutique website (client website, 2026)
 - For a boutique that rents and sells evening dresses. A lit 3D stage parades the collection; every dress has its own page and a zoom that keeps full photo quality.
 - The owner manages the collection herself in a CMS (Neon Postgres + Vercel Blob for photos). Renting or buying goes through WhatsApp with the dress number pre-filled.
-- Stack: React + Vite, three.js with React Three Fiber, GSAP. Live: https://rina-couture.vercel.app/
+- Stack: React + Vite, three.js with React Three Fiber, GSAP. Live demo: https://rina-couture.vercel.app/
 
 17) Veranda — restaurant website (2026)
 - A site for a fire-kitchen terrace restaurant: live WebGL steam rises off the plate of the day, and the menu swaps dishes like a waiter serving them.
 - Day and night looks from the local time and weather, an open-now status, table booking and ordering on WhatsApp, and it works offline as an installable app (PWA).
-- Stack: Vite, GSAP, WebGL. Live: https://veranda-jet.vercel.app/
+- Stack: Vite, GSAP, WebGL. Live demo: https://veranda-jet.vercel.app/
 
 18) Kokrra — coffee-shop concept website (2026)
 - A coffee-shop site told as one scroll story: a latte lands, then each drink steps in over its own illustrated jungle, drawn in code.
 - Full menu with an order list that checks out on WhatsApp. Profiled and tuned so the main-thread work was cut by about half.
-- Stack: Vite, GSAP, Lenis. Live: https://kokrra-eta.vercel.app/
+- Stack: Vite, GSAP, Lenis. Live demo: https://kokrra-eta.vercel.app/
 
 19) Bella Casa — furniture showroom website (NOT solo: built together with a friend)
 - A furniture showroom site: rooms and products in arched frames that echo the logo, the full catalogue, calm GSAP and Lenis motion, floating WhatsApp on phones.
 - The owner runs it from a black-and-gold CMS (rooms, products, photos, pages) with an invoice page.
-- Stack: React + Vite, Node.js API, Neon Postgres. Live: https://bella-casa-five.vercel.app/
+- Stack: React + Vite, Node.js API, Neon Postgres. Live demo: https://bella-casa-five.vercel.app/
 - When asked about it, say it was built with a friend; never say Naser built it alone.
 `;
 
