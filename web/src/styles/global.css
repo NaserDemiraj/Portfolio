@@ -1899,3 +1899,35 @@ p {
     gap: 18px 16px;
   }
 }
+
+/* Phones: Selected work is a row you swipe through, one card at a time. */
+.swipe__hint {
+  margin: -8px 0 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-4);
+}
+
+.work__swipe {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 88%;
+  gap: 14px;
+  align-items: start;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 4px var(--gutter) 12px;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: none;
+}
+
+.work__swipe::-webkit-scrollbar {
+  display: none;
+}
+
+.work__swipe > .work__card {
+  scroll-snap-align: start;
+}
+

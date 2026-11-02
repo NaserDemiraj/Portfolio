@@ -11,7 +11,10 @@ import { gsap, MOTION_OK, ScrollTrigger, SIDEWAYS, useGSAP } from '../motion/gsa
 const TOUCH = '(hover: none)';
 // Narrow screens fold each card's highlights behind a Details toggle.
 const NARROW = '(max-width: 860px)';
-// How many side projects show before 'Show all'.
+// Phones swipe through the work sideways and see fewer side projects at first.
+const PHONE = '(max-width: 640px)';
+// How many side projects show before 'Show all' (phones / larger screens).
+const MORE_SHOWN_PHONE = 1;
 const MORE_SHOWN = 4;
 
 const SPOTLIGHT_VARS = {
@@ -111,8 +114,10 @@ export function Work() {
   // Cards slide sideways on wide screens; on smaller screens or with reduced motion they're a plain list.
   const sideways = useMediaQuery(SIDEWAYS);
   const touch = useMediaQuery(TOUCH);
+  const phone = useMediaQuery(PHONE);
   const [allMore, setAllMore] = useState(false);
-  const more = allMore ? sideProjects : sideProjects.slice(0, MORE_SHOWN);
+  const shown = phone ? MORE_SHOWN_PHONE : MORE_SHOWN;
+  const more = allMore ? sideProjects : sideProjects.slice(0, shown);
 
   // The page grows when the rest of the side projects open; re-measure the scroll scenes below.
   useEffect(() => {
@@ -165,7 +170,7 @@ export function Work() {
         });
       });
     },
-    { scope: root, dependencies: [sideways] },
+    { scope: root, dependencies: [sideways, phone] },
   );
 
   return (
@@ -184,6 +189,15 @@ export function Work() {
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
         </Sideways>
+      ) : phone ? (
+        <div className="container">
+          <p className="swipe__hint" aria-hidden="true">swipe →</p>
+          <div className="work__swipe">
+            {featured.map((p, i) => (
+              <ProjectCard key={p.title} project={p} index={i} />
+            ))}
+          </div>
+        </div>
       ) : (
         <div className="container">
           <div className="work__list">
@@ -219,7 +233,7 @@ export function Work() {
               </SpotlightCard>
             ))}
           </div>
-          {sideProjects.length > MORE_SHOWN && (
+          {sideProjects.length > shown && (
             <button type="button" className="btn btn--ghost btn--sm more__toggle" onClick={() => setAllMore((v) => !v)} aria-expanded={allMore}>
               {allMore ? 'show fewer' : `show all ${sideProjects.length}`}
             </button>
