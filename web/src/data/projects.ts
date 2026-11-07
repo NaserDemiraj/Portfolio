@@ -194,6 +194,21 @@ export type Website = {
 
 export const websites: Website[] = [
   {
+    title: 'VARËSE — Clothing Store',
+    tag: 'clothing-store concept',
+    summary: 'A clothing and jewellery store laid out like a real shop: the garments hang on a rail you walk along, and a piece turns to face you when you choose it.',
+    highlights: [
+      'Garments drawn in WebGL with a cloth shader, so they swing and ripple as you move',
+      'The rail swings round to show every piece side-on; a chosen one spins to show its back',
+      'A curved rail you swipe on phones, with a bag the garment flies into',
+    ],
+    stack: ['React', 'Three.js', 'GLSL', 'Vite'],
+    url: 'https://varese.vercel.app/',
+    clip: '/sites/varese.mp4',
+    poster: '/sites/varese.webp',
+    alt: 'VARËSE clothing-store website: garments on a diagonal rail that swings round to run straight across the wall',
+  },
+  {
     title: 'Golden Eagle — Energy Drink',
     tag: 'brand website · 3D',
     summary: 'A 3D website for Golden Eagle, the energy drink made by Frutex in Suharekë: every can is a real 3D object you turn, open and compare.',
