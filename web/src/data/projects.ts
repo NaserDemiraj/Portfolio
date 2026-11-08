@@ -209,6 +209,21 @@ export const websites: Website[] = [
     alt: 'VARËSE clothing-store website: garments on a diagonal rail that swings round to run straight across the wall',
   },
   {
+    title: 'Velë — Residences',
+    tag: 'real-estate concept',
+    summary: 'A tower of apartments on the sea where you choose a floor, watch its windows light up, and fly in through the glass to walk the rooms.',
+    highlights: [
+      'A floor map traced from the photo, so only the floor you point at lights up, across 31 floors',
+      'A camera that moves in 3D through each picture: it flies at the floor, past the balconies and in through the glass',
+      'A penthouse with its own roof terrace, a drawn floor plan with every room size, and sold or reserved floors',
+    ],
+    stack: ['WebGL', 'GLSL', 'GSAP', 'Web Audio', 'Vite'],
+    url: 'https://vele-xi.vercel.app/',
+    clip: '/sites/vele.mp4',
+    poster: '/sites/vele.webp',
+    alt: 'Velë real-estate website: a tall tower on a pier at sunset with one floor lit and a Choose your floor panel',
+  },
+  {
     title: 'Golden Eagle — Energy Drink',
     tag: 'brand website · 3D',
     summary: 'A 3D website for Golden Eagle, the energy drink made by Frutex in Suharekë: every can is a real 3D object you turn, open and compare.',
