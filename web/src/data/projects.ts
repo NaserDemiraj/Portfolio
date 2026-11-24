@@ -194,6 +194,21 @@ export type Website = {
 
 export const websites: Website[] = [
   {
+    title: 'LLAK — Nail Lacquer',
+    tag: 'nail-polish shop concept',
+    summary: 'A nail-polish shop where you pick a bottle and watch the colour being brushed onto a hand, while the whole page floods with that shade.',
+    highlights: [
+      'A WebGL shader paints each nail from cuticle to tip and floods the paper outward from the bottle you clicked',
+      'AI-generated photos of one hand and one bottle, recoloured into six shades by my own image pipeline',
+      'In English and Albanian, with a bag that writes the order out for WhatsApp',
+    ],
+    stack: ['JavaScript', 'WebGL', 'GSAP', 'Python', 'Vite'],
+    url: 'https://llak-mu.vercel.app/',
+    clip: '/sites/llak.mp4',
+    poster: '/sites/llak.webp',
+    alt: 'LLAK nail-polish website: a hand above a row of six bottles, its nails being repainted as the page changes colour',
+  },
+  {
     title: 'VARËSE — Clothing Store',
     tag: 'clothing-store concept',
     summary: 'A clothing and jewellery store laid out like a real shop: the garments hang on a rail you walk along, and a piece turns to face you when you choose it.',
